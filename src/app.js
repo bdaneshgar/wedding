@@ -35,31 +35,62 @@ if (config.env !== 'test') {
   app.use(morgan.errorHandler);
 }
 
-// set security HTTP headers
 app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
+
         scriptSrc: [
           "'self'",
-          "https://cdn.quilljs.com",
           "https://cdn.jsdelivr.net",
-          "'unsafe-inline'", // allow inline init scripts
+          "https://cdnjs.cloudflare.com",
+          "https://ajax.googleapis.com",
+          "https://maps.googleapis.com",
+          "https://maps.gstatic.com",
+          "https://www.google-analytics.com",
+          "'unsafe-inline'",
+          "'unsafe-eval'" // required by some jQuery plugins (like Fancybox)
         ],
+
         styleSrc: [
           "'self'",
-          "https://cdn.quilljs.com",
           "https://cdn.jsdelivr.net",
-          "'unsafe-inline'", // allow inline styles like Quill toolbar
+          "https://cdnjs.cloudflare.com",
+          "https://fonts.googleapis.com",
+          "'unsafe-inline'",
         ],
-        fontSrc: ["'self'", "https://cdn.jsdelivr.net", "https://cdn.quilljs.com"],
-        imgSrc: ["'self'", "data:"],
-        connectSrc: ["'self'"],
+
+        fontSrc: [
+          "'self'",
+          "https://fonts.gstatic.com",
+          "https://cdnjs.cloudflare.com",
+          "https://cdn.jsdelivr.net",
+          "data:"
+        ],
+
+        imgSrc: [
+          "'self'",
+          "data:",
+          "https://maps.googleapis.com",
+          "https://maps.gstatic.com",
+          "https://www.google-analytics.com",
+        ],
+
+        connectSrc: [
+          "'self'",
+          "https://www.google-analytics.com",
+          "https://maps.googleapis.com",
+        ],
+
+        frameSrc: ["'self'", "https://www.youtube.com"],
+
         objectSrc: ["'none'"],
         upgradeInsecureRequests: [],
       },
     },
+    crossOriginEmbedderPolicy: false,
+    crossOriginResourcePolicy: { policy: "cross-origin" },
   })
 );
 
@@ -83,7 +114,6 @@ app.options('*', cors());
 // static assets (for CSS/JS)
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.use(express.static('public'));
 
 // jwt authentication
 app.use(passport.initialize());
