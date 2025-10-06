@@ -1,18 +1,24 @@
+
 {{> header title=title authed=authed active="home" }}
 
 {{#if requirePassword}}
   <div class="container flex-grow-1 d-flex align-items-center justify-content-center">
     <main class="form-signin w-100" style="max-width: 330px;">
       <form method="POST" action="/login">
-        <h1 class="h3 mb-3 fw-normal text-center">Enter Password</h1>
+        <h1 class="h3 mb-3 fw-normal text-center">Enter Code</h1>
 
         {{#if error}}
-          <div class="alert alert-danger" role="alert">Incorrect password. Please try again.</div>
+          <div class="alert alert-danger" role="alert">Incorrect code. Please try again.</div>
         {{/if}}
 
         <div class="form-floating mb-3">
           <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required autocomplete="current-password">
           <label for="floatingPassword">Password</label>
+          <div class="form-text mt-2 text-muted text-center">
+            Please enter the passcode on your wedding invitation.<br>
+            If you need assistance, please email
+            <a href="mailto:brianandhannahdaneshgar@gmail.com" class="text-decoration-none">brianandhannahdaneshgar@gmail.com</a>.
+          </div>
         </div>
 
         <button class="btn btn-dark w-100 py-2" type="submit">Sign in</button>

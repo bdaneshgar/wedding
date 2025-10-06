@@ -103,7 +103,7 @@ app.use('/v1', routes);
 
 try {
   // eslint-disable-next-line global-require
-  const pagesRouter = require('./routes/pages/dashboard.route');
+  const pagesRouter = require('./routes/pages/wedding.route');
   app.use('/', pagesRouter);
 } catch (e) {
   // pages router optional

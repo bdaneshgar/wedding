@@ -1,0 +1,817 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Brian & Hannah getting hitched!</title>
+    <meta name="description" content="We would like to invite you to our big day.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="Brian & Brian getting hitched">
+    <meta property="og:description" content="We would like to invite you to our big day.">
+    <meta property="og:image" content="https://wedding.ramswaroop.me/img/hero-min.jpg">
+    <meta property="og:type" content="website">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+
+    <script>
+        // load css files from CDN if local node_modules fail
+        function loadCssFromCDN(css) {
+            // create new link tag
+            const link = document.createElement('link');
+            if (css === 'animate.css') {
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css';
+            } else if (css === 'font-awesome.css') {
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+            }
+            link.rel = 'stylesheet';
+
+            // add link tag to head section
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+
+        // load js files from CDN if local node_modules fail
+        function loadJsFromCDN(js) {
+            if (js === 'waypoints.js') {
+                document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"><\/script>');
+            } else if (js === 'jquery.js') {
+                document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><\/script>');
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="css/queries.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css" onerror="loadCssFromCDN('animate.css')">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" onerror="loadCssFromCDN('font-awesome.css')">
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <style>
+      .hero {
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+      .hero-content img {
+        margin-top: -250px;
+      }
+      .hero .container {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .wp3 {
+        opacity: 0;
+        animation: fadeIn 1.5s ease forwards;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      /* Explicit background color rules for sections after #rsvp and others */
+      #intro {
+        background-color: #f9f9f9;
+      }
+      #map {
+        background-color: #ffffff;
+      }
+      #rsvp {
+        background-color: #f9f9f9;
+      }
+      footer {
+        background-color: #ffffff;
+      }
+           /* Map/photo grid sizing */
+      #map .grid-box {
+        height: 700px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #eee; /* placeholder while map/image loads */
+      }
+      #map .grid-box img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+      }
+      @media (max-width: 991px) {
+        #map .grid-box { height: 500px; }
+      }
+      @media (max-width: 767px) {
+        #map .grid-box { height: 380px; }
+      }
+    </style>
+</head>
+<body id="top">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <section class="navigation">
+        <header>
+            <div class="header-content">
+                <div class="logo"><a href="#"><img src="img/logo.png" alt="Logo"></a></div>
+                <div class="header-nav">
+                    <nav>
+                        <ul class="primary-nav">
+                            <li><a href="#intro">How we met</a></li>
+                            <li><a href="#schedule">Schedule</a></li>
+                            <li><a href="#eng-pics">Good Times</a></li>
+                        </ul>
+                        <ul class="member-actions">
+                            <li><a href="#map" class="login">Venue</a></li>
+                            <li><a href="#rsvp" class="btn-white btn-small">RSVP</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="navicon">
+                    <a class="nav-toggle" href="#"><span></span></a>
+                </div>
+            </div>
+        </header>
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="hero-content text-center">
+                    <!--<h1>Brian and Hannah</h1>-->
+                    <img src="img/logo-lg.png">
+                    <!--<p class="intro">Brian & Hannah are getting hitched!</p>-->
+                    <!--<a href="#" class="btn btn-fill btn-large btn-margin-right">Scroll Down</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="down-arrow floating-arrow"><a href="#invitation"><i class="fa fa-angle-down"></i></a></div>
+</section>
+
+<section id="invitation" class="section-padding">
+  <div class="container text-center">
+    <h2 style="font-family: serif; letter-spacing: 4px; font-size: 2.5em; margin-bottom: 0.5em;">
+      BRIAN DANESHGAR
+    </h2>
+    <p style="font-size: 1.2em; margin: 0;">&amp;</p>
+    <h2 style="font-family: serif; letter-spacing: 4px; font-size: 2.5em; margin-top: 0.5em; margin-bottom: 1.5em;">
+      HANNAH HALEY
+    </h2>
+    <h3 style="font-family: serif; letter-spacing: 6px; font-size: 1.5em; margin-bottom: 0.5em;">
+      MAY 24, 2026
+    </h3>
+    <p style="font-size: 1em; margin-bottom: 2em;">Beverly Hills, California</p>
+    <a href="#rsvp" class="btn btn-accent btn-large rsvp-btn">RSVP</a>
+  </div>
+</section>
+
+<section id="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3 class="header">How we met</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/_hannah.png" class="wp1"></div>
+            <div class="col-md-6">
+                <p>
+                    Brian and Hannah first met in the summer of 2018 on a Birthright trip to Israel. Though he was instantly drawn to her, life carried them in different directions and the moment passed. Four years later, their paths crossed again at Track Club Los Angeles in Santa Monica. What began as a familiar face soon revealed itself to be something much deeper. Both graduates of NYU, who had somehow missed each other during their college years, Brian and Hannah came to see that their lives had been quietly weaving together all along. It felt certain that, one way or another, they were destined to meet. In 2025, Brian proposed to Hannah at the Prospect Park Boathouse in Brooklyn, marking the beginning of their forever.
+                </p>
+            </div>
+            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/_brian.png" class="wp2"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="img/_hannah.png" class="wp8"></div>
+            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="img/_brian.png" class="wp9"></div>
+        </div>
+    </div>
+</section>
+
+<section class="schedule section-padding" id="schedule">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3 class="header">Wedding Celebration</h3>
+                <p>Join us for one unforgettable evening as we celebrate our marriage at the Beverly Hills Hotel.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-center">
+                <div class="wp3">
+                    <p><strong>Saturday, May 24, 2025</strong></p>
+                    <h5>Cocktails <span class="time">5:30PM – 7:00PM</span></h5>
+                    <h5>Ceremony <span class="time">7:00PM – 8:00PM</span></h5>
+                    <h5>Dinner & Dancing <span class="time">8:00PM – Late</span></h5>
+                    <p>
+                      <a href="wedding.ics" class="btn btn-accent btn-large" download>Add to iCal</a>
+                    </p>
+                    <p><strong>Dress Code:</strong> Black Tie</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="eng-pics" class="section-padding">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3 class="header">Good Times</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/2025-01-12 - runDisney Walt Disney World - Rundisney finish line_3.JPEG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/2025-01-12 - runDisney Walt Disney World - Rundisney finish line_3.JPEG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/211_3rd-3354443-DIGITAL_HIGHRES-9487_179718-73362409.JPG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/211_3rd-3354443-DIGITAL_HIGHRES-9487_179718-73362409.JPG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/745281869.276156.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/745281869.276156.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/8e098dc2-de1a-41dd-bbcb-3366cb91007e.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/8e098dc2-de1a-41dd-bbcb-3366cb91007e.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/BD035963.JPG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/BD035963.JPG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/BD036063.JPG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/BD036063.JPG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/BD036464.JPG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/BD036464.JPG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/BD036471.JPG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/BD036471.JPG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/BD036476.JPG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/BD036476.JPG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/DSC07973.JPG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/DSC07973.JPG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/DSC07989.JPG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/DSC07989.JPG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/DSC08060.JPG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/DSC08060.JPG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_0309.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_0309.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_1057.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_1057.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_1066.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_1066.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_1081.JPEG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_1081.JPEG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_1122.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_1122.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_1348.JPG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_1348.JPG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_1349.JPG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_1349.JPG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_1433.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_1433.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_1462.JPG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_1462.JPG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_1604.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_1604.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_1643.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_1643.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_1796.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_1796.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_2219.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_2219.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_2651.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_2651.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_2842.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_2842.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_3670.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_3670.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_3842.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_3842.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_4050.JPEG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_4050.JPEG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_5211.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_5211.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_5481.JPG">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_5481.JPG" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_6331.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_6331.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_6359.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_6359.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_7147.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_7147.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_7494.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_7494.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_7509.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_7509.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_7639.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_7639.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/good_times/IMG_7640.jpeg">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img src="img/good_times/IMG_7640.jpeg" alt=""/>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row hidden-lg hidden-md hidden-xs">
+            <div class="col-xs-12 section-border section-padding"></div>
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="col-md-12">
+            <div class="diamond floating-logo">
+                <img src="img/sketch-logo.png" alt="Sketch Logo">
+                <div class="ring"></div>
+            </div>
+        </div>
+    </div>-->
+</section>
+
+<!-- <section id="video-bg" class="hidden-sm hidden-xs">
+    <div id="bgndVideo" class="player"
+         data-property="{videoURL:'https://www.youtube.com/watch?v=UYUiNhMay1Y',containment:'#video-bg',autoPlay:true, mute:true, showControls:false, startAt:80, stopAt:259, opacity:1}">
+    </div>
+    <div id="video-content">
+        <h5>Beverly Hills Hotel</h5>
+    </div>
+</section> -->
+
+<section id="map" class="section-padding">
+  <div class="text-center">
+    <h3>How do I get there?</h3>
+    <p>It's way easier than you think!</p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <!-- Top left: Map -->
+      <div class="col-md-6" style="margin-bottom: 20px;">
+        <div id="map-canvas" class="grid-box"></div>
+      </div>
+      <!-- Top right: Photo -->
+      <div class="col-md-6" style="margin-bottom: 20px;">
+        <div class="grid-box">
+          <img src="img/good_times/BD036471.JPG" alt="Beverly Hills Hotel">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Bottom left: Another photo -->
+      <div class="col-md-6" style="margin-bottom: 20px;">
+        <div class="grid-box">
+          <img src="img/good_times/BD036476.JPG" alt="Beverly Hills Hotel">
+        </div>
+      </div>
+      <!-- Bottom right: Room info / discount -->
+      <div class="col-md-6 text-center" style="display:flex; flex-direction:column; justify-content:center;">
+        <h3>Beverly Hills Hotel</h3>
+        <p>If you’d like to make a weekend of it, we’ve arranged a preferred rate for our guests staying at the Beverly Hills Hotel.</p>
+        <p>Please mention our wedding when booking directly with the hotel to receive the discount, subject to availability.</p>
+        <p><strong>Address:</strong><br>9641 Sunset Blvd, Beverly Hills, CA 90210</p>
+        <div class="row text-center">
+          <div class="col-md-6" style="padding: 5px;">
+            <a class="btn btn-fill btn-large"
+              href="https://m.uber.com/ul/?action=setPickup&amp;pickup=my_location&amp;dropoff[formatted_address]=Beverly%20Hills%20Hotel%2C%209641%20Sunset%20Blvd%2C%20Beverly%20Hills%2C%20CA%2090210%2C%20USA&amp;dropoff[latitude]=34.0810&amp;dropoff[longitude]=-118.4143">
+              <i class="fa fa-taxi"></i>&nbsp;&nbsp;Book Uber
+            </a>
+          </div>
+          <div class="col-md-6" style="padding: 5px;">
+            <a class="btn btn-accent btn-large" href="#map">
+              <i class="fa fa-map-marker"></i>&nbsp;&nbsp;Show map
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="rsvp text-center" id="rsvp">
+
+    <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
+                    </button>
+                    <div class="section-padding">
+                        <h3>Thank you!</h3>
+                        <p>We are glad to see you join us on our big day.</p>
+                        <div id="add-to-cal"></div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h3>What are you waiting for?</h3>
+                <p>Kindly RSVP before April 21, 2026</p>
+                <form id="rsvp-form" class="rsvp-form"
+                      action=""
+                      method="POST">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
+                                                                     placeholder="Your email"
+                                                                     required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-user"></i><input name="name" class=""
+                                                                 placeholder="Your name"
+                                                                 required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
+                                                                  max="4"
+                                                                  placeholder="Husband/Wife or kids"
+                                                                  required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
+                                                                class="" min="0"
+                                                                placeholder="Invite code"
+                                                                required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="alert-wrapper"></div>
+                    </div>
+                    <button class="btn-fill rsvp-btn">
+                        Yes,
+                        that's me!
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center content">
+                <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up"></i></a></span>
+                <p>Brian <span class="fa fa-heart pulse2"></span> Hannah</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/vendor/jquery-1.11.2.min.js" onerror="loadJsFromCDN('jquery.js')"></script>
+<script src="node_modules/waypoints/lib/jquery.waypoints.min.js" onerror="loadJsFromCDN('waypoints.js')"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/jquery.mb.YTPlayer.min.js"></script>
+<script src="js/vendor/ouical.js"></script>
+<script src="js/scripts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    if (typeof confetti !== 'function') {
+      return;
+    }
+
+    var base = {
+      spread: 160,
+      startVelocity: 45,
+      ticks: 140,
+      zIndex: 3000
+    };
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function burst(count, origin) {
+      confetti({
+        particleCount: count,
+        spread: base.spread,
+        startVelocity: base.startVelocity,
+        ticks: base.ticks,
+        zIndex: base.zIndex,
+        origin: origin
+      });
+    }
+
+    burst(220, { x: 0.5, y: 0.55 });
+
+    var duration = 2400;
+    var animationEnd = Date.now() + duration;
+    var interval = setInterval(function () {
+      if (Date.now() >= animationEnd) {
+        clearInterval(interval);
+        return;
+      }
+
+      var origins = [
+        { x: randomInRange(0.05, 0.2), y: randomInRange(0.05, 0.2) },
+        { x: randomInRange(0.8, 0.95), y: randomInRange(0.05, 0.2) },
+        { x: randomInRange(0.15, 0.35), y: randomInRange(0.35, 0.5) },
+        { x: randomInRange(0.65, 0.85), y: randomInRange(0.35, 0.5) },
+        { x: randomInRange(0.1, 0.3), y: randomInRange(0.65, 0.85) },
+        { x: randomInRange(0.7, 0.9), y: randomInRange(0.65, 0.85) },
+        { x: randomInRange(0.4, 0.6), y: randomInRange(0.1, 0.25) }
+      ];
+
+      for (var i = 0; i < origins.length; i++) {
+        burst(i < 2 ? 150 : 110, origins[i]);
+      }
+    }, 200);
+  });
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHBtT_HiKSA5sN-ZxJ5XFVrhKWgZAC9Ng&callback=initMap"></script>
+<script>
+  function initMap() {
+    var bhHotel = { lat: 34.0810, lng: -118.4143 };
+    var map = new google.maps.Map(document.getElementById('map-canvas'), {
+      zoom: 15,
+      center: bhHotel
+    });
+    new google.maps.Marker({
+      position: bhHotel,
+      map: map,
+      title: 'Beverly Hills Hotel'
+    });
+  }
+</script>
+<!-- Google Analytics -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-46465113-4', 'auto');
+    ga('send', 'pageview');
+</script>
+</body>
+</html>
