@@ -83,6 +83,8 @@ app.options('*', cors());
 // static assets (for CSS/JS)
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
+app.use(express.static('public'));
+
 // jwt authentication
 app.use(passport.initialize());
 passport.use('jwt', jwtStrategy);
