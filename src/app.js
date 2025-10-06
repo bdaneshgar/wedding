@@ -40,57 +40,51 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-
         scriptSrc: [
           "'self'",
-          "https://cdn.jsdelivr.net",
           "https://cdnjs.cloudflare.com",
+          "https://cdn.jsdelivr.net",
           "https://ajax.googleapis.com",
           "https://maps.googleapis.com",
           "https://maps.gstatic.com",
+          "https://apis.google.com",
           "https://www.google-analytics.com",
           "'unsafe-inline'",
-          "'unsafe-eval'" // required by some jQuery plugins (like Fancybox)
+          "'unsafe-eval'"
         ],
-
         styleSrc: [
           "'self'",
+          "https://fonts.googleapis.com",
           "https://cdn.jsdelivr.net",
           "https://cdnjs.cloudflare.com",
-          "https://fonts.googleapis.com",
-          "'unsafe-inline'",
+          "'unsafe-inline'"
         ],
-
         fontSrc: [
           "'self'",
           "https://fonts.gstatic.com",
-          "https://cdnjs.cloudflare.com",
           "https://cdn.jsdelivr.net",
+          "https://cdnjs.cloudflare.com",
           "data:"
         ],
-
         imgSrc: [
           "'self'",
           "data:",
           "https://maps.googleapis.com",
           "https://maps.gstatic.com",
-          "https://www.google-analytics.com",
+          "https://www.google-analytics.com"
         ],
-
         connectSrc: [
           "'self'",
           "https://www.google-analytics.com",
-          "https://maps.googleapis.com",
+          "https://maps.googleapis.com"
         ],
-
-        frameSrc: ["'self'", "https://www.youtube.com"],
-
+        workerSrc: ["'self'", "blob:"], // ✅ allows confetti
         objectSrc: ["'none'"],
-        upgradeInsecureRequests: [],
-      },
+        upgradeInsecureRequests: []
+      }
     },
     crossOriginEmbedderPolicy: false,
-    crossOriginResourcePolicy: { policy: "cross-origin" },
+    crossOriginResourcePolicy: { policy: "cross-origin" }
   })
 );
 
