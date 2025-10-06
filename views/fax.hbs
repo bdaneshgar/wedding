@@ -1,0 +1,213 @@
+<!--update-->
+{{> header title=title authed=true }}
+
+<div class="container-fluid">
+  <div class="row">
+    {{> sidebar active='fax' }}
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">fax</h1>
+      </div>
+      <div class="col-12">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title mb-3">fax script</h5>
+            <form id="fax-form" method="POST" class="mb-3">
+              <textarea name="script" class="form-control fax-script mb-3" rows="14">{{latestScript.script}}</textarea>
+              <input type="hidden" name="message" id="message-input">
+              <div class="d-flex justify-content-between">
+                <button formaction="/projects/fax/save-script" type="submit" class="btn btn-dark">
+                  save script
+                </button>
+                <button formaction="/projects/fax/broadcast" type="submit" class="btn btn-primary" onclick="return prepareMessage()">
+                  send to all devices
+                </button>
+              </div>
+            </form>
+            <p class="mt-2">
+              <a href="/projects/fax/script.txt" target="_blank">View Latest Script</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- combined live preview + snippets -->
+      <div class="col-12 mt-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title mb-3">live preview + snippets</h5>
+            <div id="preview" class="fax-preview mb-3"></div>
+            <pre class="mb-3"><code>{{sampleCode}}</code></pre>
+            <ul class="list-unstyled">
+              <li><button class="btn btn-sm btn-outline-secondary mb-1" onclick="insertSnippet('hello')">date, time, :)</button></li>
+              <li><button class="btn btn-sm btn-outline-secondary mb-1" onclick="insertSnippet('groceries')">groceries</button></li>
+              <li><button class="btn btn-sm btn-outline-secondary mb-1" onclick="insertSnippet('date')">Insert Date</button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<style>
+  .fax-preview {
+    width: 240px;    /* 58mm roll */
+    min-height: 300px;
+    margin: 0 auto;
+    border: 1px dashed #ccc;
+    background: #fff;
+    font-family: monospace, "Courier New", sans-serif;
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    padding: 8px;
+  }
+  .fax-script {
+    font-family: monospace, "Courier New", sans-serif;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+</style>
+
+<script>
+function prepareMessage() {
+  const ta = document.querySelector('textarea[name="script"]');
+  if (ta) {
+    document.getElementById('message-input').value = ta.value;
+  }
+  return true;
+}
+
+// snippets
+const snippets = {
+  hello: `{
+  "commands": [
+    { "action": "boldOn" },
+    { "action": "justify", "value": "C" },
+    { "action": "print", "value": "\{{date}}" },
+    { "action": "print", "value": "\{{time}}" },
+    { "action": "smile"},
+    { "action": "feed", "value": 2 } 
+  ]
+}`,
+  groceries: `{
+  "commands": [
+    { "action": "boldOn" },
+    { "action": "justify", "value": "C" },
+    { "action": "print", "value": "\{{date}}" },
+    { "action": "print", "value": "\{{time}}" },
+    { "action": "smile"},
+    { "action": "feed", "value": 2 },
+    { "action": "line" },
+    { "action": "feed", "value": 2 },
+    { "action": "groceries"},     
+    { "action": "line" }, 
+    { "action": "feed", "value": 2 }
+  ]
+}`,
+  date: `{
+  "commands": [
+    { "action": "print", "value": "\{{date}}" },
+    { "action": "print", "value": "\{{time}}" },
+    { "action": "feed", "value": 2 }
+  ]
+}`
+};
+
+function insertSnippet(key) {
+  const ta = document.querySelector('textarea[name="script"]');
+  if (ta) {
+    ta.value = snippets[key];
+    updatePreview();
+  }
+} 
+
+// live preview logic
+function updatePreview() {
+  const ta = document.querySelector('textarea[name="script"]');
+  const preview = document.getElementById('preview');
+  preview.innerHTML = ''; 
+
+  let doc;
+  try {
+    doc = JSON.parse(ta.value);
+  } catch (e) {
+    preview.innerText = '[Invalid JSON]';
+    return;
+  }
+
+  if (!doc.commands) {
+    preview.innerText = '[No commands]';
+    return;
+  }
+
+  let bold = false;
+  let justify = 'left';
+
+  doc.commands.forEach(cmd => {
+    switch (cmd.action) {
+      case 'print': {
+        const text = cmd.value || '';
+        let styled = text;
+        if (bold) styled = `<b>${styled}</b>`;
+        preview.innerHTML += `<div style="text-align:${justify};">${styled}</div>`;
+        break;
+      }
+      case 'newline':
+        preview.innerHTML += `<div style="text-align:${justify};"><br></div>`;
+        break;
+      case 'feed':
+        preview.innerHTML += '<div><br></div>'.repeat(cmd.value || 1);
+        break;
+      case 'boldOn':
+        bold = true;
+        break;
+      case 'boldOff':
+        bold = false;
+        break;
+      case 'justify':
+        if (cmd.value === 'C') justify = 'center';
+        else if (cmd.value === 'R') justify = 'right';
+        else justify = 'left';
+        break;
+      case 'line':
+        preview.innerHTML += `<div style="text-align:${justify};">▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂</div>`;
+        break;
+      case 'smile':
+        preview.innerHTML += `<div style="text-align:${justify};">[:) image]</div>`;
+        break;
+      case 'groceries':
+        // fake expansion for preview
+        preview.innerHTML += `<div style="text-align:center;"><b>Sample Recipe</b></div>`;
+        preview.innerHTML += `<div><br></div>`;
+        preview.innerHTML += `<div><u>Ingredients:</u></div>`;
+        preview.innerHTML += `<div>- 200g Pasta</div>`;
+        preview.innerHTML += `<div>- 3 cloves Garlic</div>`;
+        preview.innerHTML += `<div>- Olive Oil</div>`;
+        preview.innerHTML += `<div><br></div>`;
+        preview.innerHTML += `<div style="text-align:center;">▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂</div>`;
+        preview.innerHTML += `<div><br></div>`;
+        preview.innerHTML += `<div><u>Instructions:</u></div>`;
+        preview.innerHTML += `<div>1. Boil pasta until al dente.</div>`;
+        preview.innerHTML += `<div>2. Sauté garlic in olive oil.</div>`;
+        preview.innerHTML += `<div>3. Toss pasta with garlic oil.</div>`;
+        break;
+      default:
+        preview.innerHTML += `<div>[Unknown action: ${cmd.action}]</div>`;
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const ta = document.querySelector('textarea[name="script"]');
+  if (ta) {
+    ta.addEventListener('input', updatePreview);
+    updatePreview(); 
+  }
+});
+</script>
+
+{{> footer }}

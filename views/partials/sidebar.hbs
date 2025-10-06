@@ -1,0 +1,43 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+  <div class="position-sticky pt-3 sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link {{#if (eq active 'dashboard')}}active{{/if}}" href="/admin">
+          dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{#if (eq active 'projects')}}active{{/if}}" href="/projects">
+          projects
+        </a>
+      </li>
+    </ul>
+
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase small">
+      <span>projects</span>
+    </h6>
+
+    <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <a class="nav-link {{#if (eq active 'fax')}}active{{/if}}" href="/projects/fax">
+          fax
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" href="/v1/docs">
+          api docs
+        </a>
+      </li>
+      <li class="nav-item">
+        <form method="POST" action="/logout" class="px-3 py-0 m-0">
+          <button type="submit" class="nav-link text-danger p-0 btn btn-link border-0 bg-transparent">
+            sign out
+          </button>
+        </form>
+      </li>
+    </ul>
+  </div>
+</nav>

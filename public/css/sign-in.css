@@ -1,0 +1,4 @@
+/* Minimal tweaks for the password form */
+body { background-color: #f8f9fa; }
+.form-signin { padding: 15px; }
+.form-signin .form-control { box-shadow: none; }

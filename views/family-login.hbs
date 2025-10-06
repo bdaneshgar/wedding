@@ -1,0 +1,22 @@
+{{> header title=title authed=false }}
+
+  <div class="container flex-grow-1 d-flex align-items-center justify-content-center">
+    <main class="form-signin w-100" style="max-width: 330px;">
+      <form method="POST" action="/family/login">
+        <h1 class="h3 mb-3 fw-normal text-center">Enter Family Password</h1>
+
+      {{#if error}}
+          <div class="alert alert-danger" role="alert">Incorrect password. Please try again.</div>
+        {{/if}}
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required autocomplete="current-password">
+          <label for="floatingPassword">Password</label>
+        </div>
+
+        <button class="btn btn-dark w-100 py-2" type="submit">Sign in</button>
+      </form>
+    </main>
+  </div>
+
+{{> footer }}
+
