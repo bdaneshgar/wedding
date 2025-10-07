@@ -538,7 +538,16 @@
                 <a class="fancybox" rel="good-times" href="{{this.href}}">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="{{this.src}}" alt="{{this.alt}}">
+                        <img
+                          data-lazy-image
+                          data-src="{{this.src}}"
+                          {{#if this.srcset}}data-srcset="{{this.srcset}}"{{/if}}
+                          alt="{{this.alt}}"
+                          loading="lazy"
+                          decoding="async">
+                        <noscript>
+                          <img src="{{this.src}}" alt="{{this.alt}}">
+                        </noscript>
                     </div>
                 </a>
             </div>
@@ -770,6 +779,44 @@
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', onScroll);
       onScroll();
+    }
+  });
+</script>
+<script>
+  window.addEventListener('load', function () {
+    var lazyImages = Array.prototype.slice.call(document.querySelectorAll('[data-lazy-image]'));
+    if (!lazyImages.length) {
+      return;
+    }
+
+    var hydrate = function (img) {
+      if (img.dataset.srcset) {
+        img.srcset = img.dataset.srcset;
+        img.removeAttribute('data-srcset');
+      }
+      if (img.dataset.src) {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+      }
+      img.removeAttribute('data-lazy-image');
+    };
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            return;
+          }
+          observer.unobserve(entry.target);
+          hydrate(entry.target);
+        });
+      }, { rootMargin: '200px 0px', threshold: 0.05 });
+
+      lazyImages.forEach(function (img) {
+        observer.observe(img);
+      });
+    } else {
+      lazyImages.forEach(hydrate);
     }
   });
 </script>
