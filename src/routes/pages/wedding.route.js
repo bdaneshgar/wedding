@@ -37,13 +37,16 @@ router.get('/', (req, res) => {
 // handle login
 router.post('/login', (req, res) => {
   const password = (req.body && req.body.password) || '';
+  console.log('[invitation] login attempt');
   if (password === HOME_PASSWORD) {
     res.setHeader(
       'Set-Cookie',
       ['auth=ok; Path=/; HttpOnly; SameSite=Lax'] // add Secure in prod
     );
+    console.log('[invitation] login success, redirecting to /invitation');
     return res.redirect('/invitation');
   }
+  console.warn('[invitation] login failed');
   return res.redirect('/?error=1');
 });
 
@@ -53,6 +56,7 @@ router.post('/logout', (req, res) => {
     'Set-Cookie',
     ['auth=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; SameSite=Lax']
   );
+  console.log('[invitation] logout complete');
   return res.redirect('/');
 });
 
@@ -60,7 +64,10 @@ router.post('/logout', (req, res) => {
 router.get('/invitation', (req, res) => {
   const cookies = parseCookies(req);
   const authed = cookies.auth === 'ok';
-  if (!authed) return res.redirect('/?error=1');
+  if (!authed) {
+    console.warn('[invitation] unauthorized access attempt');
+    return res.redirect('/?error=1');
+  }
 
   let galleryPhotos = [];
   try {
@@ -76,11 +83,13 @@ router.get('/invitation', (req, res) => {
         const webPath = encodeURI(`/img/good_times/${name}`);
         return { src: webPath, href: webPath, alt };
       });
+    console.log(`[invitation] loaded ${galleryPhotos.length} gallery images`);
   } catch (err) {
+    console.error('[invitation] failed to load gallery images', err);
     galleryPhotos = [];
   }
 
-  res.render('invitation', {
+  res.render('wedding', {
     title: 'Brian & Hannah',
     active: 'wedding',
     authed: true,
