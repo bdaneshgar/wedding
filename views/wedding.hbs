@@ -351,40 +351,52 @@
           margin-left: 0;
         }
       }
-      @media (max-width: 991px) {
-        .intro-image-left {
-          transform: translate3d(-120px, 0, 0);
-        }
-        .intro-image-right {
-          transform: translate3d(120px, 0, 0);
-        }
-      }
       @media (max-width: 767px) {
-        .hero .container {
-          padding-top: 60px;
-          min-height: auto;
-        }
-        .hero-content img {
-          width: min(320px, 90vw);
-        }
-        .intro-image-left {
-          transform: translate3d(0, 60px, 0);
-        }
-        .intro-image-right {
-          transform: translate3d(0, 60px, 0);
-        }
-        .venue-card {
-          align-items: flex-start;
-          text-align: left;
-        }
-        .venue-actions {
-          justify-content: flex-start;
-          width: 100%;
-        }
-        .venue-actions .btn {
-          max-width: none;
-        }
-      }
+  .hero .container {
+    padding-top: 60px;
+    min-height: auto;
+  }
+
+  .hero-content img {
+    width: min(320px, 90vw);
+  }
+
+  /* On mobile, bring both people to the center and slightly lower */
+  .intro-image-left,
+  .intro-image-right {
+    transform: translate3d(0, 60px, 0);
+  }
+
+  /* Optional: center align the container holding both images */
+  .intro-images {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem; /* adjust spacing between you two */
+    flex-wrap: wrap; /* allows stacking if very narrow */
+  }
+
+  /* Optional: slightly reduce size so they fit comfortably */
+  .intro-image-left img,
+  .intro-image-right img {
+    max-width: 45vw;
+    height: auto;
+  }
+
+  .venue-card {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .venue-actions {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .venue-actions .btn {
+    max-width: none;
+  }
+}
     </style>
 </head>
 <body id="top">
