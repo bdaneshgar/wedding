@@ -1,3 +1,26 @@
-# Convert text file line endings to lf
+# Default: treat text files as LF (Unix-style line endings)
 * text eol=lf
+
+# Explicitly mark binary files so Git never alters them
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.svg binary
+*.pdf binary
+*.mp4 binary
+*.mov binary
+
+# Keep normal behavior for text-based code files
 *.js text
+*.css text
+*.scss text
+*.html text
+*.hbs text
+*.json text
+*.md text
+*.yml text
+*.yaml text
+*.sh text
