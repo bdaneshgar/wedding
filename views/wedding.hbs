@@ -117,10 +117,10 @@
       }
       .intro-story-layout {
         display: grid;
-        grid-template-columns: minmax(140px, auto) minmax(0, 1fr) minmax(140px, auto);
-        align-items: end;
+        grid-template-columns: clamp(120px, 10vw, 220px) minmax(0, 1fr) clamp(120px, 10vw, 220px);
+        align-items: flex-end;
         justify-content: center;
-        gap: clamp(32px, 6vw, 80px);
+        gap: clamp(24px, 4vw, 64px);
         margin-top: 32px;
       }
       .intro-story-image {
@@ -128,12 +128,14 @@
         justify-content: center;
       }
       .intro-story-image img {
-        width: clamp(180px, 18vw, 260px);
+        width: clamp(170px, 18vw, 250px);
         max-width: 100%;
         height: auto;
       }
       .intro-story-text {
-        max-width: 640px;
+        width: min(80vw, 100%);
+        max-width: none;
+        justify-self: center;
       }
       .intro-story-text p {
         margin-bottom: 0;
@@ -383,10 +385,14 @@
           transform: translate3d(120px, 0, 0);
         }
         .intro-story-layout {
-          gap: clamp(24px, 5vw, 48px);
+          grid-template-columns: clamp(100px, 12vw, 180px) minmax(0, 1fr) clamp(100px, 12vw, 180px);
+          gap: clamp(20px, 5vw, 40px);
         }
         .intro-story-image img {
           width: clamp(150px, 22vw, 220px);
+        }
+        .intro-story-text {
+          width: min(80vw, 100%);
         }
       }
       @media (max-width: 767px) {
@@ -404,15 +410,15 @@
           transform: translate3d(0, 60px, 0);
         }
         .intro-story-layout {
-          grid-template-columns: auto minmax(0, 1fr) auto;
+          grid-template-columns: clamp(70px, 11vw, 140px) minmax(0, 1fr) clamp(70px, 11vw, 140px);
           align-items: center;
-          gap: clamp(16px, 4vw, 32px);
-        }
-        .intro-story-text {
-          max-width: min(500px, 96vw);
+          gap: clamp(16px, 5vw, 28px);
         }
         .intro-story-image img {
           width: clamp(110px, 26vw, 170px);
+        }
+        .intro-story-text {
+          width: min(80vw, 640px);
         }
         .venue-card {
           align-items: flex-start;
@@ -428,15 +434,15 @@
       }
       @media (max-width: 480px) {
         .intro-story-layout {
-          gap: clamp(12px, 5vw, 24px);
-          grid-template-columns: minmax(48px, 16vw) minmax(0, 1fr) minmax(48px, 16vw);
+          gap: clamp(10px, 4vw, 20px);
+          grid-template-columns: clamp(28px, 8.5vw, 60px) minmax(0, 1fr) clamp(28px, 8.5vw, 60px);
         }
         .intro-story-image img {
           width: auto;
           height: 120px;
         }
         .intro-story-text {
-          max-width: min(560px, 94vw);
+          width: min(80vw, 520px);
         }
       }
     </style>
