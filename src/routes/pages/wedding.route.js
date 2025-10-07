@@ -57,7 +57,7 @@ router.post('/logout', (req, res) => {
 });
 
 // wedding
-router.get('/admin', (req, res) => {
+router.get('/invitation', (req, res) => {
   const cookies = parseCookies(req);
   const authed = cookies.auth === 'ok';
   if (!authed) return res.redirect('/?error=1');
