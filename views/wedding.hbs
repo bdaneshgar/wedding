@@ -125,6 +125,79 @@
       footer {
         background-color: #ffffff;
       }
+      .invitation-card {
+        border: none;
+        border-radius: 18px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.94);
+      }
+      .invitation-card .card-body {
+        padding: 48px 40px;
+      }
+      .invitation-logo {
+        width: min(280px, 70%);
+        margin: 0 auto 24px;
+        display: block;
+      }
+      .section-heading {
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        font-size: 2.1em;
+        margin-bottom: 0.75em;
+      }
+      .section-subtitle {
+        max-width: 660px;
+        margin: 0 auto 2.25em;
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 1.05em;
+      }
+      .schedule-card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px 36px;
+      }
+      .schedule-date {
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.28em;
+        color: var(--muted-color);
+        margin-bottom: 28px;
+      }
+      .schedule-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 20px;
+      }
+      .schedule-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 22px;
+        border-radius: 16px;
+        background: rgba(244, 239, 233, 0.55);
+      }
+      .schedule-item h5 {
+        margin: 0;
+        font-size: 1.05rem;
+        letter-spacing: 0.08em;
+        color: var(--heading-color);
+      }
+      .schedule-item .time {
+        font-weight: 500;
+        color: var(--accent-dark);
+        margin-left: 16px;
+        white-space: nowrap;
+      }
+      .schedule-footer {
+        margin-top: 32px;
+        font-size: 0.95rem;
+        color: var(--muted-color);
+      }
            /* Map/photo grid sizing */
       #map .grid-box {
         height: 700px;
@@ -197,6 +270,18 @@
         #eng-pics .good-times-grid {
           column-count: 1;
         }
+        .schedule-card {
+          padding: 32px 24px;
+        }
+        .schedule-item {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          text-align: left;
+        }
+        .schedule-item .time {
+          margin-left: 0;
+        }
       }
       @media (max-width: 767px) {
         .hero .container {
@@ -231,7 +316,7 @@
                         <ul class="primary-nav">
                             <li><a href="#intro">How we met</a></li>
                             <li><a href="#schedule">Schedule</a></li>
-                            <li><a href="#eng-pics">Good Times</a></li>
+                            <li><a href="#eng-pics">Photo Gallery</a></li>
                         </ul>
                         <ul class="member-actions">
                             <li><a href="#map" class="login">Venue</a></li>
@@ -250,7 +335,6 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="hero-content text-center">
                     <!--<h1>Brian and Hannah</h1>-->
-                    <img src="/img/logo-lg.png">
                     <!--<p class="intro">Brian & Hannah are getting hitched!</p>-->
                     <!--<a href="#" class="btn btn-fill btn-large btn-margin-right">Scroll Down</a> -->
                 </div>
@@ -261,19 +345,28 @@
 </section>
 
 <section id="invitation" class="section-padding">
-  <div class="container text-center">
-    <h2 style="font-family: serif; letter-spacing: 4px; font-size: 2.5em; margin-bottom: 0.5em;">
-      BRIAN DANESHGAR
-    </h2>
-    <p style="font-size: 1.2em; margin: 0;">&amp;</p>
-    <h2 style="font-family: serif; letter-spacing: 4px; font-size: 2.5em; margin-top: 0.5em; margin-bottom: 1.5em;">
-      HANNAH HALEY
-    </h2>
-    <h3 style="font-family: serif; letter-spacing: 6px; font-size: 1.5em; margin-bottom: 0.5em;">
-      MAY 24, 2026
-    </h3>
-    <p style="font-size: 1em; margin-bottom: 2em;">Beverly Hills, California</p>
-    <a href="#rsvp" class="btn btn-accent btn-large rsvp-btn">RSVP</a>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card invitation-card text-center">
+          <div class="card-body">
+            <img src="/img/logo-lg.png" alt="Brian &amp; Hannah monogram" class="invitation-logo">
+            <h2 class="mb-2" style="font-family: serif; letter-spacing: 4px; font-size: 2.5em;">
+              BRIAN DANESHGAR
+            </h2>
+            <p style="font-size: 1.2em; margin: 0;">&amp;</p>
+            <h2 class="mt-2 mb-4" style="font-family: serif; letter-spacing: 4px; font-size: 2.5em;">
+              HANNAH HALEY
+            </h2>
+            <h3 class="mb-3" style="font-family: serif; letter-spacing: 6px; font-size: 1.5em;">
+              MAY 24, 2026
+            </h3>
+            <p class="mb-4" style="font-size: 1em;">Beverly Hills, California</p>
+            <a href="#rsvp" class="btn btn-accent btn-large rsvp-btn">RSVP</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -294,31 +387,42 @@
             <div class="col-md-3 hidden-sm hidden-xs"><img src="/img/_brian.png" class="wp2 intro-image intro-image-right" data-intro-image></div>
         </div>
         <div class="row">
-            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="/img/_hannah.png" class="wp8 intro-image intro-image-right" data-intro-image></div>
-            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="/img/_brian.png" class="wp9 intro-image intro-image-left" data-intro-image></div>
+            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="/img/_hannah.png" class="wp8 intro-image intro-image-left" data-intro-image></div>
+            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="/img/_brian.png" class="wp9 intro-image intro-image-right" data-intro-image></div>
         </div>
     </div>
 </section>
 
-<section class="schedule section-padding" id="schedule">
+<section class="schedule section-padding content-section section-surface-white" id="schedule">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h3 class="header">Wedding Celebration</h3>
-                <p>Join us for one unforgettable evening as we celebrate our marriage at the Beverly Hills Hotel.</p>
+        <div class="row text-center">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 class="header section-heading">Wedding Celebration</h3>
+                <p class="section-subtitle">An evening at the Beverly Hills Hotel filled with cocktails, vows, dinner, and dancing the night away.</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 col-sm-12 text-center">
-                <div>
-                    <p><strong>Saturday, May 24, 2025</strong></p>
-                    <h5>Cocktails <span class="time">5:30PM – 7:00PM</span></h5>
-                    <h5>Ceremony <span class="time">7:00PM – 8:00PM</span></h5>
-                    <h5>Dinner & Dancing <span class="time">8:00PM – Late</span></h5>
-                    <p>
-                      <a href="wedding.ics" class="btn btn-accent btn-large" download>Add to iCal</a>
-                    </p>
-                    <p><strong>Dress Code:</strong> Black Tie</p>
+            <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+                <div class="schedule-card text-center">
+                    <p class="schedule-date">Saturday, May 24, 2025</p>
+                    <ul class="schedule-list">
+                        <li class="schedule-item">
+                            <h5>Cocktails</h5>
+                            <span class="time">5:30 PM – 7:00 PM</span>
+                        </li>
+                        <li class="schedule-item">
+                            <h5>Ceremony</h5>
+                            <span class="time">7:00 PM – 8:00 PM</span>
+                        </li>
+                        <li class="schedule-item">
+                            <h5>Dinner &amp; Dancing</h5>
+                            <span class="time">8:00 PM – Late</span>
+                        </li>
+                    </ul>
+                    <div style="margin-top: 24px;">
+                        <a href="wedding.ics" class="btn btn-accent btn-large" download>Add to iCal</a>
+                    </div>
+                    <p class="schedule-footer"><strong>Dress Code:</strong> Black Tie</p>
                 </div>
             </div>
         </div>
@@ -329,7 +433,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3 class="header">Good Times</h3>
+                <h3 class="header">Photo Gallery</h3>
             </div>
         </div>
         <div class="good-times-grid">
@@ -851,15 +955,45 @@
 </script>
 <script>
   window.addEventListener('load', function () {
-    var RETRY_DELAY = 150;
-    var MAX_ATTEMPTS = 20;
+    var CDN_URL = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js';
+    var CDN_SCRIPT_ID = 'confetti-cdn-script';
+    var POLL_DELAY = 140;
+    var MAX_ATTEMPTS = 60;
     var hasLaunched = false;
     var attempts = 0;
     var confettiCanvas = null;
+    var launcher = null;
     var animationInterval = null;
     var cleanupTimeout = null;
+    var pollTimer = null;
+    var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function ensureCanvas() {
+      if (confettiCanvas && confettiCanvas.parentNode) {
+        return confettiCanvas;
+      }
+      var canvas = document.createElement('canvas');
+      canvas.className = 'confetti-canvas';
+      canvas.style.position = 'fixed';
+      canvas.style.left = '0';
+      canvas.style.top = '0';
+      canvas.style.width = '100%';
+      canvas.style.height = '100%';
+      canvas.style.pointerEvents = 'none';
+      canvas.style.zIndex = '4000';
+      document.body.appendChild(canvas);
+      confettiCanvas = canvas;
+      return canvas;
+    }
 
     function teardownCanvas() {
+      if (confettiCanvas && confettiCanvas.parentNode) {
+        confettiCanvas.parentNode.removeChild(confettiCanvas);
+      }
+      confettiCanvas = null;
+    }
+
+    function cleanup() {
       if (animationInterval) {
         window.clearInterval(animationInterval);
         animationInterval = null;
@@ -868,20 +1002,66 @@
         window.clearTimeout(cleanupTimeout);
         cleanupTimeout = null;
       }
-      if (confettiCanvas && confettiCanvas.parentNode) {
-        confettiCanvas.parentNode.removeChild(confettiCanvas);
+      if (launcher && typeof launcher.reset === 'function') {
+        try {
+          launcher.reset();
+        } catch (err) {
+          // ignore
+        }
       }
-      confettiCanvas = null;
+      launcher = null;
+      teardownCanvas();
+      hasLaunched = false;
     }
 
-    function fireConfetti(launcher) {
+    function ensureLauncher() {
+      if (launcher) {
+        return launcher;
+      }
+      if (typeof confetti !== 'function') {
+        return null;
+      }
+      var canvas = ensureCanvas();
+      try {
+        launcher = confetti.create(canvas, { resize: true, useWorker: true });
+      } catch (err) {
+        launcher = null;
+      }
+      if (!launcher) {
+        try {
+          launcher = confetti.create(canvas, { resize: true, useWorker: false });
+        } catch (err) {
+          launcher = null;
+        }
+      }
+      if (!launcher) {
+        teardownCanvas();
+      }
+      return launcher;
+    }
+
+    function fireConfetti() {
+      if (prefersReducedMotion) {
+        return true;
+      }
+      if (hasLaunched) {
+        return true;
+      }
+
+      var activeLauncher = ensureLauncher();
+      if (!activeLauncher) {
+        return false;
+      }
+
+      hasLaunched = true;
+
       var defaults = {
-        spread: 80,
+        spread: 90,
         startVelocity: 72,
-        ticks: 440,
-        gravity: 0.9,
-        decay: 0.92,
-        scalar: 1.05,
+        ticks: 520,
+        gravity: 0.85,
+        decay: 0.9,
+        scalar: 1.1,
         angle: 270
       };
       var launchColumns = [0.18, 0.5, 0.82];
@@ -890,14 +1070,13 @@
 
       animationInterval = window.setInterval(function () {
         launchColumns.forEach(function (baseX) {
-          var jitter = (Math.random() - 0.5) * 0.16;
+          var jitter = (Math.random() - 0.5) * 0.18;
           var originX = Math.min(Math.max(baseX + jitter, 0.05), 0.95);
-          launcher(Object.assign({}, defaults, {
-            particleCount: 140,
+          activeLauncher(Object.assign({}, defaults, {
+            particleCount: 150,
             origin: { x: originX, y: 1.08 }
           }));
         });
-
         shots += 1;
         if (shots >= maxShots) {
           window.clearInterval(animationInterval);
@@ -905,55 +1084,43 @@
         }
       }, 160);
 
-      cleanupTimeout = window.setTimeout(teardownCanvas, (maxShots * 160) + 6000);
-    }
-
-    function initConfetti() {
-      if (hasLaunched) {
-        return true;
-      }
-
-      if (typeof confetti !== 'function') {
-        return false;
-      }
-
-      teardownCanvas();
-      confettiCanvas = document.createElement('canvas');
-      confettiCanvas.className = 'confetti-canvas';
-      document.body.appendChild(confettiCanvas);
-
-      var launcher = null;
-      try {
-        launcher = confetti.create(confettiCanvas, { resize: true, useWorker: true });
-      } catch (err) {
-        launcher = null;
-      }
-
-      if (!launcher) {
-        try {
-          // Safari and older browsers lack OffscreenCanvas, so fall back to the main thread.
-          launcher = confetti.create(confettiCanvas, { resize: true, useWorker: false });
-        } catch (err) {
-          teardownCanvas();
-          return true;
-        }
-      }
-
-      fireConfetti(launcher);
-      hasLaunched = true;
+      cleanupTimeout = window.setTimeout(cleanup, (maxShots * 160) + 6000);
       return true;
     }
 
-    if (!initConfetti()) {
-      var waitForConfetti = window.setInterval(function () {
+    function requestConfetti() {
+      if (typeof confetti === 'function') {
+        return fireConfetti();
+      }
+
+      if (!document.getElementById(CDN_SCRIPT_ID)) {
+        var script = document.createElement('script');
+        script.id = CDN_SCRIPT_ID;
+        script.src = CDN_URL;
+        script.async = true;
+        script.onload = fireConfetti;
+        script.onerror = function () {
+          if (pollTimer) {
+            window.clearInterval(pollTimer);
+            pollTimer = null;
+          }
+        };
+        document.head.appendChild(script);
+      }
+      return false;
+    }
+
+    if (!requestConfetti()) {
+      pollTimer = window.setInterval(function () {
         attempts += 1;
-        if (initConfetti() || attempts >= MAX_ATTEMPTS) {
-          window.clearInterval(waitForConfetti);
+        if (requestConfetti() || attempts >= MAX_ATTEMPTS) {
+          window.clearInterval(pollTimer);
+          pollTimer = null;
           if (!hasLaunched) {
-            teardownCanvas();
+            cleanup();
           }
         }
-      }, RETRY_DELAY);
+      }, POLL_DELAY);
     }
   });
 </script>
@@ -991,3 +1158,9 @@
 </script>
 </body>
 </html>
+      .content-section {
+        padding: 80px 0;
+      }
+      .section-surface-white {
+        background-color: #ffffff;
+      }
