@@ -57,7 +57,7 @@
     <link rel="stylesheet" href="css/queries.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>    <style>
+    <style>
       .hero {
         position: relative;
         overflow: hidden;
@@ -124,6 +124,56 @@
       }
       @media (max-width: 767px) {
         #map .grid-box { height: 380px; }
+      }
+      #eng-pics .good-times-grid {
+        column-count: 4;
+        column-gap: 24px;
+        margin-top: 40px;
+      }
+      #eng-pics .good-times-item {
+        break-inside: avoid;
+        margin-bottom: 24px;
+        display: inline-block;
+        width: 100%;
+      }
+      #eng-pics .good-times-item .img-wrap {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      #eng-pics .good-times-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      #eng-pics .good-times-item .overlay {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
+      }
+      #eng-pics .good-times-item i {
+        font-size: 20px;
+        top: 12px;
+        right: 12px;
+      }
+      #eng-pics .good-times-item:hover .img-wrap,
+      #eng-pics .good-times-item:focus .img-wrap {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+      }
+      @media (max-width: 1199px) {
+        #eng-pics .good-times-grid {
+          column-count: 3;
+        }
+      }
+      @media (max-width: 991px) {
+        #eng-pics .good-times-grid {
+          column-count: 2;
+        }
+      }
+      @media (max-width: 575px) {
+        #eng-pics .good-times-grid {
+          column-count: 1;
+        }
       }
     </style>
 </head>
@@ -244,8 +294,8 @@
                 <h3 class="header">Good Times</h3>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-2">
+        <div class="good-times-grid">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/2025-01-12 - runDisney Walt Disney World - Rundisney finish line_3.JPEG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -253,7 +303,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/211_3rd-3354443-DIGITAL_HIGHRES-9487_179718-73362409.JPG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -261,7 +311,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/745281869.276156.jpg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -269,7 +319,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/8e098dc2-de1a-41dd-bbcb-3366cb91007e.jpg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -277,7 +327,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/BD035963.JPG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -285,7 +335,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/BD036063.JPG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -293,7 +343,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/BD036464.JPG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -301,7 +351,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/BD036471.JPG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -309,7 +359,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/BD036476.JPG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -317,7 +367,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/DSC07973.JPG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -325,7 +375,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/DSC07989.JPG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -333,7 +383,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/DSC08060.JPG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -341,7 +391,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_0309.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -349,7 +399,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_1057.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -357,7 +407,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_1066.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -365,7 +415,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_1081.JPEG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -373,7 +423,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_1122.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -381,7 +431,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_1348.JPG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -389,7 +439,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_1349.JPG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -397,7 +447,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_1433.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -405,7 +455,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_1462.JPG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -413,7 +463,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_1604.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -421,7 +471,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_1643.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -429,7 +479,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_1796.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -437,7 +487,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_2219.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -445,7 +495,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_2651.jpg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -453,7 +503,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_2842.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -461,7 +511,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_3670.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -469,7 +519,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_3842.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -477,7 +527,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_4050.JPEG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -485,7 +535,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_5211.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -493,7 +543,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_5481.JPG">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -501,7 +551,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_6331.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -509,7 +559,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_6359.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -517,7 +567,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_7147.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -525,7 +575,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_7494.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -533,7 +583,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_7509.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -541,7 +591,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_7639.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
@@ -549,7 +599,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="good-times-item">
                 <a class="fancybox" rel="group" href="/img/good_times/IMG_7640.jpeg">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
