@@ -55,6 +55,9 @@
     <link rel="stylesheet" href="css/flexslider.css">
     <link rel="stylesheet" href="css/styles.min.css">
     <link rel="stylesheet" href="css/queries.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -130,6 +133,7 @@
         border-radius: 18px;
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1);
         background: rgba(255, 255, 255, 0.94);
+        font-family: 'Libre Baskerville', serif;
       }
       .invitation-card .card-body {
         padding: 48px 40px;
@@ -138,6 +142,41 @@
         width: min(280px, 70%);
         margin: 0 auto 24px;
         display: block;
+      }
+      .invitation-names {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        letter-spacing: 0.3em;
+        font-size: clamp(2.4rem, 6vw, 3.4rem);
+      }
+      .invitation-ampersand {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        margin: 18px 0 22px;
+        color: rgba(66, 78, 92, 0.7);
+        font-family: 'Libre Baskerville', serif;
+        font-size: 1.3rem;
+        letter-spacing: 0.2em;
+      }
+      .invitation-ampersand::before,
+      .invitation-ampersand::after {
+        content: '';
+        width: 44px;
+        height: 1px;
+        background: rgba(66, 78, 92, 0.25);
+      }
+      .invitation-date {
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 0.45em;
+        font-size: 1.15rem;
+        margin-bottom: 18px;
+      }
+      .invitation-location {
+        font-family: 'Libre Baskerville', serif;
+        color: rgba(66, 78, 92, 0.7);
+        margin-bottom: 36px;
       }
       .section-heading {
         font-family: 'Playfair Display', serif;
@@ -350,18 +389,12 @@
         <div class="card invitation-card text-center">
           <div class="card-body">
             <img src="/img/logo-lg.png" alt="Brian &amp; Hannah monogram" class="invitation-logo">
-            <h2 class="mb-2" style="font-family: serif; letter-spacing: 4px; font-size: 2.5em;">
-              BRIAN DANESHGAR
-            </h2>
-            <p style="font-size: 1.2em; margin: 0;">&amp;</p>
-            <h2 class="mt-2 mb-4" style="font-family: serif; letter-spacing: 4px; font-size: 2.5em;">
-              HANNAH HALEY
-            </h2>
-            <h3 class="mb-3" style="font-family: serif; letter-spacing: 6px; font-size: 1.5em;">
-              MAY 24, 2026
-            </h3>
-            <p class="mb-4" style="font-size: 1em;">Beverly Hills, California</p>
-            <a href="#rsvp" class="btn btn-accent btn-large rsvp-btn">RSVP</a>
+            <h2 class="invitation-names mb-2">BRIAN DANESHGAR</h2>
+            <div class="invitation-ampersand">&amp;</div>
+            <h2 class="invitation-names mb-4">HANNAH HALEY</h2>
+            <h3 class="invitation-date">MAY 24, 2026</h3>
+            <p class="invitation-location">Beverly Hills Hotel · Beverly Hills, California</p>
+            <a href="wedding.ics" class="btn btn-accent btn-large rsvp-btn" download>Add to iCal</a>
           </div>
         </div>
       </div>
@@ -934,179 +967,64 @@
     };
 
     if (!('IntersectionObserver' in window)) {
-      setTimeout(activateSlides, 1000);
+      window.setTimeout(activateSlides, 1000);
       return;
     }
 
     var triggered = false;
+    var fallbackTimer = window.setTimeout(function () {
+      if (!triggered) {
+        triggered = true;
+        activateSlides();
+      }
+    }, 2500);
+
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting && !triggered) {
           triggered = true;
-          setTimeout(activateSlides, 1000);
+          window.clearTimeout(fallbackTimer);
+          window.setTimeout(activateSlides, 300);
           observer.disconnect();
         }
       });
-    }, { threshold: 0.45 });
+    }, { threshold: 0.3, rootMargin: '0px 0px -15%' });
 
     observer.observe(introSection);
   });
 </script>
 <script>
   window.addEventListener('load', function () {
-    var CDN_URL = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js';
-    var CDN_SCRIPT_ID = 'confetti-cdn-script';
-    var POLL_DELAY = 140;
-    var MAX_ATTEMPTS = 60;
-    var hasLaunched = false;
-    var attempts = 0;
-    var confettiCanvas = null;
-    var launcher = null;
-    var cleanupTimeout = null;
-    var pollTimer = null;
-    var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function ensureCanvas() {
-      if (confettiCanvas && confettiCanvas.parentNode) {
-        return confettiCanvas;
-      }
-      var canvas = document.createElement('canvas');
-      canvas.className = 'confetti-canvas';
-      canvas.style.position = 'fixed';
-      canvas.style.left = '0';
-      canvas.style.top = '0';
-      canvas.style.width = '100%';
-      canvas.style.height = '100%';
-      canvas.style.pointerEvents = 'none';
-      canvas.style.zIndex = '4000';
-      document.body.appendChild(canvas);
-      confettiCanvas = canvas;
-      return canvas;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
     }
 
-    function teardownCanvas() {
-      if (confettiCanvas && confettiCanvas.parentNode) {
-        confettiCanvas.parentNode.removeChild(confettiCanvas);
-      }
-      confettiCanvas = null;
-    }
-
-    function cleanup() {
-      if (animationInterval) {
-        window.clearInterval(animationInterval);
-        animationInterval = null;
-      }
-      if (cleanupTimeout) {
-        window.clearTimeout(cleanupTimeout);
-        cleanupTimeout = null;
-      }
-      if (launcher && typeof launcher.reset === 'function') {
-        try {
-          launcher.reset();
-        } catch (err) {
-          // ignore
-        }
-      }
-      launcher = null;
-      teardownCanvas();
-      hasLaunched = false;
-    }
-
-    function ensureLauncher() {
-      if (launcher) {
-        return launcher;
-      }
-      if (typeof confetti !== 'function') {
-        return null;
-      }
-      var canvas = ensureCanvas();
-      try {
-        launcher = confetti.create(canvas, { resize: true, useWorker: true });
-      } catch (err) {
-        launcher = null;
-      }
-      if (!launcher) {
-        try {
-          launcher = confetti.create(canvas, { resize: true, useWorker: false });
-        } catch (err) {
-          launcher = null;
-        }
-      }
-      if (!launcher) {
-        teardownCanvas();
-      }
-      return launcher;
-    }
-
-    function fireConfetti() {
-      if (prefersReducedMotion) {
-        return true;
-      }
-      if (hasLaunched) {
-        return true;
-      }
-
-      var activeLauncher = ensureLauncher();
-      if (!activeLauncher) {
-        return false;
-      }
-
-      hasLaunched = true;
-
-      var defaults = {
-        spread: 95,
-        startVelocity: 64,
-        ticks: 560,
-        gravity: 0.82,
-        decay: 0.9,
-        scalar: 1.12,
-        angle: 275
+    function launchConfetti() {
+      var settings = {
+        particleCount: 180,
+        origin: { y: 0.75 },
+        gravity: 0.6,
+        ticks: 320
       };
-      var jitter = (Math.random() - 0.5) * 0.2;
-      var originX = Math.min(Math.max(0.5 + jitter, 0.1), 0.9);
 
-      activeLauncher(Object.assign({}, defaults, {
-        particleCount: 260,
-        origin: { x: originX, y: 0.88 }
-      }));
-
-      cleanupTimeout = window.setTimeout(cleanup, 7000);
-      return true;
+      confetti(Object.assign({}, settings, { spread: 70, scalar: 1.05 }));
+      confetti(Object.assign({}, settings, { spread: 110, decay: 0.92, scalar: 0.9 }));
     }
 
-    function requestConfetti() {
-      if (typeof confetti === 'function') {
-        return fireConfetti();
-      }
-
-      if (!document.getElementById(CDN_SCRIPT_ID)) {
-        var script = document.createElement('script');
-        script.id = CDN_SCRIPT_ID;
-        script.src = CDN_URL;
-        script.async = true;
-        script.onload = fireConfetti;
-        script.onerror = function () {
-          if (pollTimer) {
-            window.clearInterval(pollTimer);
-            pollTimer = null;
-          }
-        };
-        document.head.appendChild(script);
-      }
-      return false;
-    }
-
-    if (!requestConfetti()) {
-      pollTimer = window.setInterval(function () {
-        attempts += 1;
-        if (requestConfetti() || attempts >= MAX_ATTEMPTS) {
-          window.clearInterval(pollTimer);
-          pollTimer = null;
-          if (!hasLaunched) {
-            cleanup();
-          }
+    if (typeof confetti === 'function') {
+      launchConfetti();
+    } else {
+      var tries = 0;
+      var maxTries = 20;
+      var interval = window.setInterval(function () {
+        tries += 1;
+        if (typeof confetti === 'function') {
+          window.clearInterval(interval);
+          launchConfetti();
+        } else if (tries >= maxTries) {
+          window.clearInterval(interval);
         }
-      }, POLL_DELAY);
+      }, 150);
     }
   });
 </script>
