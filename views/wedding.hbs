@@ -404,7 +404,6 @@
             <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
                 <div class="schedule-card text-center">
                     <p class="schedule-date">Sunday, May 24, 2026</p>
-                    <p class="schedule-date">Beverly Hills Hotel</p>
                     <ul class="schedule-list">
                         <li class="schedule-item">
                             <h5>Cocktails</h5>
@@ -1056,13 +1055,13 @@
       hasLaunched = true;
 
       var defaults = {
-        spread: 90,
-        startVelocity: 72,
-        ticks: 520,
-        gravity: 0.85,
+        spread: 95,
+        startVelocity: 64,
+        ticks: 560,
+        gravity: 0.82,
         decay: 0.9,
-        scalar: 1.1,
-        angle: 270
+        scalar: 1.12,
+        angle: 275
       };
       var launchColumns = [0.18, 0.5, 0.82];
       var shots = 0;
@@ -1074,7 +1073,7 @@
           var originX = Math.min(Math.max(baseX + jitter, 0.05), 0.95);
           activeLauncher(Object.assign({}, defaults, {
             particleCount: 150,
-            origin: { x: originX, y: 1.08 }
+            origin: { x: originX, y: 0.9 }
           }));
         });
         shots += 1;
