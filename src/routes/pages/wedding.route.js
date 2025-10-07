@@ -18,13 +18,13 @@ const parseCookies = (req) => {
   }, {});
 };
 
-// home: password gate, redirect to admin when authed
+// home: password gate, redirect to invitation when authed
 router.get('/', (req, res) => {
   const cookies = parseCookies(req);
   const authed = cookies.auth === 'ok';
   const hasError = req.query.error === '1';
 
-  if (authed) return res.redirect('/admin');
+  if (authed) return res.redirect('/invitation');
 
   res.render('index', {
     title: 'Sign In',
@@ -42,7 +42,7 @@ router.post('/login', (req, res) => {
       'Set-Cookie',
       ['auth=ok; Path=/; HttpOnly; SameSite=Lax'] // add Secure in prod
     );
-    return res.redirect('/admin');
+    return res.redirect('/invitation');
   }
   return res.redirect('/?error=1');
 });
@@ -56,7 +56,7 @@ router.post('/logout', (req, res) => {
   return res.redirect('/');
 });
 
-// wedding
+// invitation
 router.get('/invitation', (req, res) => {
   const cookies = parseCookies(req);
   const authed = cookies.auth === 'ok';
@@ -80,9 +80,9 @@ router.get('/invitation', (req, res) => {
     galleryPhotos = [];
   }
 
-  res.render('wedding', {
+  res.render('invitation', {
     title: 'Brian & Hannah',
-    active: 'wedding',
+    active: 'invitation',
     authed: true,
     galleryPhotos,
   });
