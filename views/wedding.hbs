@@ -15,7 +15,7 @@
     <meta name="description" content="We would like to invite you to our big day.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff">
-    <meta property="og:title" content="Brian & Brian getting hitched">
+    <meta property="og:title" content="Brian & Brian getting married">
     <meta property="og:description" content="We would like to invite you to our big day.">
     <meta property="og:image" content="https://brianandhannahgettingmarried.com/img/hero-min.jpg">
     <meta property="og:type" content="website">
@@ -381,7 +381,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="hero-content text-center">
                     <!--<h1>Brian and Hannah</h1>-->
-                    <!--<p class="intro">Brian & Hannah are getting hitched!</p>-->
+                    <!--<p class="intro">Brian & Hannah are getting married!</p>-->
                     <!--<a href="#" class="btn btn-fill btn-large btn-margin-right">Scroll Down</a> -->
                 </div>
             </div>
@@ -680,60 +680,65 @@
       return;
     }
 
+    var sentinel = introSection.querySelector('[data-intro-trigger]');
+    if (!sentinel) {
+      sentinel = document.createElement('span');
+      sentinel.setAttribute('data-intro-trigger', '');
+      sentinel.setAttribute('aria-hidden', 'true');
+      sentinel.style.display = 'block';
+      sentinel.style.width = '100%';
+      sentinel.style.height = '1px';
+      sentinel.style.pointerEvents = 'none';
+      sentinel.style.opacity = '0';
+      introSection.appendChild(sentinel);
+    }
+
+    var activated = false;
+
     var activateSlides = function () {
-      introImages.forEach(function (img) {
-        img.classList.add('intro-image-active');
+      if (activated) {
+        return;
+      }
+      activated = true;
+      introImages.forEach(function (img, index) {
+        window.setTimeout(function () {
+          img.classList.add('intro-image-active');
+        }, index * 80);
       });
     };
 
-    var triggered = false;
-    var observer = null;
-    var fallbackTimer = null;
+    var fallbackTimer = window.setTimeout(activateSlides, 6000);
 
-    var finishTrigger = function () {
-      if (triggered) {
-        return;
-      }
-      triggered = true;
-      window.removeEventListener('scroll', onScrollOrResize);
-      window.removeEventListener('resize', onScrollOrResize);
-      if (observer && typeof observer.disconnect === 'function') {
-        observer.disconnect();
-      }
-      if (fallbackTimer) {
-        window.clearTimeout(fallbackTimer);
-      }
-      window.setTimeout(activateSlides, 120);
-    };
-
-    var onScrollOrResize = function () {
-      if (triggered) {
-        return;
-      }
-      var rect = introSection.getBoundingClientRect();
-      var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-      if (rect.bottom <= viewportHeight) {
-        finishTrigger();
-      }
-    };
-
-    window.addEventListener('scroll', onScrollOrResize, { passive: true });
-    window.addEventListener('resize', onScrollOrResize);
-    onScrollOrResize();
-
-    fallbackTimer = window.setTimeout(finishTrigger, 4500);
-
-    var triggerElement = introSection.querySelector('[data-intro-trigger]');
-    if ('IntersectionObserver' in window && triggerElement) {
-      observer = new IntersectionObserver(function (entries) {
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            finishTrigger();
+            observer.disconnect();
+            window.clearTimeout(fallbackTimer);
+            window.setTimeout(activateSlides, 120);
           }
         });
-      }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+      }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
 
-      observer.observe(triggerElement);
+      observer.observe(sentinel);
+    } else {
+      var onScroll = function () {
+        if (activated) {
+          return;
+        }
+        var rect = sentinel.getBoundingClientRect();
+        var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+        if (rect.top <= viewportHeight) {
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('resize', onScroll);
+          window.clearTimeout(fallbackTimer);
+          window.setTimeout(activateSlides, 120);
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      onScroll();
     }
   });
 </script>
