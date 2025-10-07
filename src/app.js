@@ -40,6 +40,20 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
+        frameSrc: [
+          "'self'",
+          "https://www.youtube.com",
+          "https://player.vimeo.com",
+          "https://www.google.com",
+          "https://www.myregistry.com"
+        ],
+        childSrc: [
+          "'self'",
+          "https://www.youtube.com",
+          "https://player.vimeo.com",
+          "https://www.google.com",
+          "https://www.myregistry.com"
+        ],
         scriptSrc: [
           "'self'",
           "https://cdnjs.cloudflare.com",
