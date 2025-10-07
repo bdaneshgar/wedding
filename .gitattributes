@@ -1,26 +1,30 @@
-# Default: treat text files as LF (Unix-style line endings)
-* text eol=lf
+# Default: normalize *text* to LF
+* text=auto eol=lf
 
-# Explicitly mark binary files so Git never alters them
-*.png binary
-*.jpg binary
+# Never touch these (disable EOL conversion)
+*.png  binary
+*.PNG  binary
+*.jpg  binary
+*.JPG  binary
 *.jpeg binary
-*.gif binary
+*.JPEG binary
+*.gif  binary
+*.GIF  binary
 *.webp binary
-*.ico binary
-*.svg binary
-*.pdf binary
-*.mp4 binary
-*.mov binary
-
-# Keep normal behavior for text-based code files
-*.js text
-*.css text
-*.scss text
-*.html text
-*.hbs text
-*.json text
-*.md text
-*.yml text
-*.yaml text
-*.sh text
+*.WEBP binary
+*.ico  binary
+*.ICO  binary
+*.pdf  binary
+*.PDF  binary
+*.mp4  binary
+*.MP4  binary
+*.mov  binary
+*.MOV  binary
+*.woff  binary
+*.woff2 binary
+*.ttf  binary
+*.otf  binary
+*.eot  binary
+# SVGs are text but must NOT be normalized
+*.svg  -text
+*.SVG  -text
