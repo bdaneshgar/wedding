@@ -115,6 +115,29 @@
         transform: translate3d(0, 0, 0);
         opacity: 1;
       }
+      .intro-story-layout {
+        display: grid;
+        grid-template-columns: minmax(140px, auto) minmax(0, 1fr) minmax(140px, auto);
+        align-items: end;
+        justify-content: center;
+        gap: clamp(32px, 6vw, 80px);
+        margin-top: 32px;
+      }
+      .intro-story-image {
+        display: flex;
+        justify-content: center;
+      }
+      .intro-story-image img {
+        width: clamp(180px, 18vw, 260px);
+        max-width: 100%;
+        height: auto;
+      }
+      .intro-story-text {
+        max-width: 640px;
+      }
+      .intro-story-text p {
+        margin-bottom: 0;
+      }
       [data-intro-trigger] {
         display: block;
         width: 100%;
@@ -229,7 +252,7 @@
       }
       .schedule-item h5 {
         margin: 0;
-        font-size: 1.05rem;
+        font-size: 1.25rem;
         letter-spacing: 0.08em;
         color: var(--heading-color);
       }
@@ -241,7 +264,7 @@
       }
       .schedule-footer {
         margin-top: 32px;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         color: var(--muted-color);
       }
            /* Map/photo grid sizing */
@@ -358,6 +381,12 @@
         .intro-image-right {
           transform: translate3d(120px, 0, 0);
         }
+        .intro-story-layout {
+          gap: clamp(24px, 5vw, 48px);
+        }
+        .intro-story-image img {
+          width: clamp(150px, 22vw, 220px);
+        }
       }
       @media (max-width: 767px) {
         .hero .container {
@@ -373,6 +402,17 @@
         .intro-image-right {
           transform: translate3d(0, 60px, 0);
         }
+        .intro-story-layout {
+          grid-template-columns: auto minmax(0, 1fr) auto;
+          align-items: center;
+          gap: clamp(16px, 4vw, 32px);
+        }
+        .intro-story-text {
+          max-width: min(500px, 100%);
+        }
+        .intro-story-image img {
+          width: clamp(110px, 26vw, 170px);
+        }
         .venue-card {
           align-items: flex-start;
           text-align: left;
@@ -383,6 +423,14 @@
         }
         .venue-actions .btn {
           max-width: none;
+        }
+      }
+      @media (max-width: 480px) {
+        .intro-story-layout {
+          gap: clamp(12px, 5vw, 24px);
+        }
+        .intro-story-image img {
+          width: clamp(90px, 28vw, 140px);
         }
       }
     </style>
@@ -456,17 +504,21 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 hidden-sm hidden-xs"><img src="/img/_hannah.png" class="intro-image intro-image-left" data-intro-image></div>
-            <div class="col-md-6">
-                <p>
-                    Brian and Hannah first met in the summer of 2018 on a Birthright trip to Israel. Though he was instantly drawn to her, life carried them in different directions and the moment passed. Four years later, their paths crossed again at Track Club Los Angeles in Santa Monica. What began as a familiar face soon revealed itself to be something much deeper. Both graduates of NYU, who had somehow missed each other during their college years, Brian and Hannah came to see that their lives had been quietly weaving together all along. It felt certain that, one way or another, they were destined to meet. In 2025, Brian proposed to Hannah at the Prospect Park Boathouse in Brooklyn, marking the beginning of their forever.
-                </p>
+            <div class="col-md-12">
+                <div class="intro-story-layout">
+                    <div class="intro-story-image intro-story-image-left">
+                        <img src="/img/_hannah.png" class="intro-image intro-image-left" data-intro-image>
+                    </div>
+                    <div class="intro-story-text">
+                        <p>
+                            Brian and Hannah first met in the summer of 2018 on a Birthright trip to Israel. Though he was instantly drawn to her, life carried them in different directions and the moment passed. Four years later, their paths crossed again at Track Club Los Angeles in Santa Monica. What began as a familiar face soon revealed itself to be something much deeper. Both graduates of NYU, who had somehow missed each other during their college years, Brian and Hannah came to see that their lives had been quietly weaving together all along. It felt certain that, one way or another, they were destined to meet. In 2025, Brian proposed to Hannah at the Prospect Park Boathouse in Brooklyn, marking the beginning of their forever.
+                        </p>
+                    </div>
+                    <div class="intro-story-image intro-story-image-right">
+                        <img src="/img/_brian.png" class="intro-image intro-image-right" data-intro-image>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3 hidden-sm hidden-xs"><img src="/img/_brian.png" class="intro-image intro-image-right" data-intro-image></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="/img/_hannah.png" class="intro-image intro-image-left" data-intro-image></div>
-            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="/img/_brian.png" class="intro-image intro-image-right" data-intro-image></div>
         </div>
         <div class="intro-trigger-sentinel" data-intro-trigger aria-hidden="true"></div>
     </div>
