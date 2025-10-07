@@ -466,336 +466,35 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <h3 class="header">Photo Gallery</h3>
+                <p class="section-subtitle">A living album—add or remove photos in the Good Times folder and they’ll appear here automatically.</p>
             </div>
         </div>
+        {{#if galleryPhotos.length}}
         <div class="good-times-grid">
+            {{#each galleryPhotos}}
             <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/2025-01-12 - runDisney Walt Disney World - Rundisney finish line_3.JPEG">
+                <a class="fancybox" rel="good-times" href="{{this.href}}">
                     <div class="img-wrap">
                         <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/2025-01-12 - runDisney Walt Disney World - Rundisney finish line_3.JPEG" alt=""/>
+                        <img src="{{this.src}}" alt="{{this.alt}}">
                     </div>
                 </a>
             </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/211_3rd-3354443-DIGITAL_HIGHRES-9487_179718-73362409.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/211_3rd-3354443-DIGITAL_HIGHRES-9487_179718-73362409.JPG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/745281869.276156.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/745281869.276156.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/8e098dc2-de1a-41dd-bbcb-3366cb91007e.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/8e098dc2-de1a-41dd-bbcb-3366cb91007e.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/BD035963.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/BD035963.JPG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/BD036063.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/BD036063.JPG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/BD036464.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/BD036464.JPG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/BD036471.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/BD036471.JPG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/BD036476.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/BD036476.JPG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/DSC07973.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/DSC07973.JPG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/DSC07989.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/DSC07989.JPG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/DSC08060.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/DSC08060.JPG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_0309.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_0309.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_1057.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_1057.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_1066.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_1066.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_1081.JPEG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_1081.JPEG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_1122.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_1122.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_1348.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_1348.JPG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_1349.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_1349.JPG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_1433.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_1433.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_1462.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_1462.JPG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_1604.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_1604.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_1643.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_1643.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_1796.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_1796.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_2219.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_2219.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_2651.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_2651.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_2842.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_2842.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_3670.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_3670.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_3842.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_3842.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_4050.JPEG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_4050.JPEG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_5211.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_5211.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_5481.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_5481.JPG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_6331.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_6331.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_6359.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_6359.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_7147.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_7147.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_7494.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_7494.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_7509.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_7509.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_7639.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_7639.jpeg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="good-times-item">
-                <a class="fancybox" rel="group" href="/img/good_times/IMG_7640.jpeg">
-                    <div class="img-wrap">
-                        <div class="overlay"><i class="fa fa-search"></i></div>
-                        <img src="/img/good_times/IMG_7640.jpeg" alt=""/>
-                    </div>
-                </a>
+            {{/each}}
+        </div>
+        {{else}}
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <p>No photos yet—add images to <code>public/img/good_times</code> to populate the gallery.</p>
             </div>
         </div>
+        {{/if}}
     </div>
     <div class="container">
         <div class="row hidden-lg hidden-md hidden-xs">
             <div class="col-xs-12 section-border section-padding"></div>
         </div>
     </div>
-    <!--<div class="row">
-        <div class="col-md-12">
-            <div class="diamond floating-logo">
-                <img src="/img/sketch-logo.png" alt="Sketch Logo">
-                <div class="ring"></div>
-            </div>
-        </div>
-    </div>-->
 </section>
 
 <!-- <section id="video-bg" class="hidden-sm hidden-xs">
@@ -1062,9 +761,3 @@
 </script>
 </body>
 </html>
-      .content-section {
-        padding: 80px 0;
-      }
-      .section-surface-white {
-        background-color: #ffffff;
-      }

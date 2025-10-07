@@ -1,7 +1,11 @@
 const express = require('express');
+const fs = require('fs');
+const path = require('path');
 const router = express.Router();
 
 const HOME_PASSWORD = process.env.HOME_PASSWORD || 'changeme';
+const GOOD_TIMES_DIR = path.join(__dirname, '..', '..', '..', 'public', 'img', 'good_times');
+const ALLOWED_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.webp', '.avif']);
 
 
 const parseCookies = (req) => {
@@ -58,10 +62,29 @@ router.get('/admin', (req, res) => {
   const authed = cookies.auth === 'ok';
   if (!authed) return res.redirect('/?error=1');
 
+  let galleryPhotos = [];
+  try {
+    const files = fs.readdirSync(GOOD_TIMES_DIR, { withFileTypes: true });
+    galleryPhotos = files
+      .filter((entry) => entry.isFile())
+      .map((entry) => entry.name)
+      .filter((name) => ALLOWED_EXTENSIONS.has(path.extname(name).toLowerCase()))
+      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
+      .map((name) => {
+        const base = name.replace(/\.[^.]+$/, '');
+        const alt = base.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim() || 'Gallery image';
+        const webPath = encodeURI(`/img/good_times/${name}`);
+        return { src: webPath, href: webPath, alt };
+      });
+  } catch (err) {
+    galleryPhotos = [];
+  }
+
   res.render('wedding', {
     title: 'Brian & Hannah',
     active: 'wedding',
     authed: true,
+    galleryPhotos,
   });
 });
 
