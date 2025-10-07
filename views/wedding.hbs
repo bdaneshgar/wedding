@@ -132,6 +132,9 @@
       }
       #eng-pics .good-times-item {
         break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        column-break-inside: avoid;
+        page-break-inside: avoid;
         margin-bottom: 24px;
         display: inline-block;
         width: 100%;
@@ -782,13 +785,14 @@
 
     confetti({
       particleCount: 450,
-      spread: 240,
-      startVelocity: 28,
-      ticks: 320,
-      gravity: 0.3,
+      spread: 60,
+      startVelocity: 72,
+      ticks: 420,
+      gravity: 0.85,
+      scalar: 1.05,
       zIndex: 3000,
       angle: 270,
-      origin: { x: 0.5, y: 0.98 },
+      origin: { x: 0.5, y: 0.995 },
       useWorker: false
     });
   });
