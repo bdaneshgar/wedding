@@ -126,7 +126,7 @@
         padding: clamp(24px, 4vw, 48px);
       }
       .intro-story__text {
-        max-width: 80ch;
+        max-width: min(72ch, 88vw);
         margin: 0 auto;
         text-align: center;
       }
@@ -419,7 +419,7 @@
           object-fit: contain;
         }
         .intro-story__text {
-          max-width: min(64ch, 90vw);
+          max-width: min(70ch, 92vw);
         }
         .venue-card {
           align-items: flex-start;
@@ -435,13 +435,16 @@
       }
       @media (max-width: 480px) {
         .intro-story {
-          grid-template-columns: minmax(70px, 28vw) minmax(0, 1fr) minmax(70px, 28vw);
+          grid-template-columns: minmax(60px, 26vw) minmax(0, 1fr) minmax(60px, 26vw);
           gap: clamp(12px, 5vw, 20px);
           padding: clamp(18px, 9vw, 30px);
         }
         .intro-story__img {
           width: min(100%, clamp(100px, 30vw, 140px));
           max-height: 120px;
+        }
+        .intro-story__text {
+          max-width: min(70ch, 94vw);
         }
       }
     </style>
