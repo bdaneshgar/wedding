@@ -11,13 +11,13 @@
     <meta charset="utf-8">
     <meta name="robots" content="noindex, nofollow">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Brian & Hannah getting hitched!</title>
+    <title>Brian & Hannah getting married!</title>
     <meta name="description" content="We would like to invite you to our big day.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff">
     <meta property="og:title" content="Brian & Brian getting hitched">
     <meta property="og:description" content="We would like to invite you to our big day.">
-    <meta property="og:image" content="https://wedding.ramswaroop.me/img/hero-min.jpg">
+    <meta property="og:image" content="https://brianandhannahgettingmarried.com/img/hero-min.jpg">
     <meta property="og:type" content="website">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -675,7 +675,7 @@
       return;
     }
 
-    var introImages = introSection.querySelectorAll('[data-intro-image]');
+    var introImages = Array.prototype.slice.call(introSection.querySelectorAll('[data-intro-image]'));
     if (!introImages.length) {
       return;
     }
@@ -686,33 +686,55 @@
       });
     };
 
-    if (!('IntersectionObserver' in window)) {
-      window.setTimeout(activateSlides, 1000);
-      return;
-    }
-
     var triggered = false;
-    var fallbackTimer = window.setTimeout(function () {
-      if (!triggered) {
-        triggered = true;
-        activateSlides();
+    var observer = null;
+    var fallbackTimer = null;
+
+    var finishTrigger = function () {
+      if (triggered) {
+        return;
       }
-    }, 2500);
+      triggered = true;
+      window.removeEventListener('scroll', onScrollOrResize);
+      window.removeEventListener('resize', onScrollOrResize);
+      if (observer && typeof observer.disconnect === 'function') {
+        observer.disconnect();
+      }
+      if (fallbackTimer) {
+        window.clearTimeout(fallbackTimer);
+      }
+      window.setTimeout(activateSlides, 120);
+    };
 
-    var triggerElement = introSection.querySelector('[data-intro-trigger]') || introSection;
+    var onScrollOrResize = function () {
+      if (triggered) {
+        return;
+      }
+      var rect = introSection.getBoundingClientRect();
+      var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+      if (rect.bottom <= viewportHeight) {
+        finishTrigger();
+      }
+    };
 
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting && entry.target === triggerElement && !triggered) {
-          triggered = true;
-          window.clearTimeout(fallbackTimer);
-          window.setTimeout(activateSlides, 300);
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0, rootMargin: '0px' });
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize);
+    onScrollOrResize();
 
-    observer.observe(triggerElement);
+    fallbackTimer = window.setTimeout(finishTrigger, 4500);
+
+    var triggerElement = introSection.querySelector('[data-intro-trigger]');
+    if ('IntersectionObserver' in window && triggerElement) {
+      observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            finishTrigger();
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+
+      observer.observe(triggerElement);
+    }
   });
 </script>
 <script>
