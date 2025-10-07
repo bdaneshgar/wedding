@@ -115,29 +115,6 @@
         transform: translate3d(0, 0, 0);
         opacity: 1;
       }
-      .intro-story-layout {
-        display: grid;
-        grid-template-columns: minmax(140px, auto) minmax(0, 1fr) minmax(140px, auto);
-        align-items: end;
-        justify-content: center;
-        gap: clamp(32px, 6vw, 80px);
-        margin-top: 32px;
-      }
-      .intro-story-image {
-        display: flex;
-        justify-content: center;
-      }
-      .intro-story-image img {
-        width: clamp(180px, 18vw, 260px);
-        max-width: 100%;
-        height: auto;
-      }
-      .intro-story-text {
-        max-width: 640px;
-      }
-      .intro-story-text p {
-        margin-bottom: 0;
-      }
       [data-intro-trigger] {
         display: block;
         width: 100%;
@@ -381,12 +358,6 @@
         .intro-image-right {
           transform: translate3d(120px, 0, 0);
         }
-        .intro-story-layout {
-          gap: clamp(24px, 5vw, 48px);
-        }
-        .intro-story-image img {
-          width: clamp(150px, 22vw, 220px);
-        }
       }
       @media (max-width: 767px) {
         .hero .container {
@@ -402,17 +373,6 @@
         .intro-image-right {
           transform: translate3d(0, 60px, 0);
         }
-        .intro-story-layout {
-          grid-template-columns: auto minmax(0, 1fr) auto;
-          align-items: center;
-          gap: clamp(16px, 4vw, 32px);
-        }
-        .intro-story-text {
-          max-width: min(500px, 100%);
-        }
-        .intro-story-image img {
-          width: clamp(110px, 26vw, 170px);
-        }
         .venue-card {
           align-items: flex-start;
           text-align: left;
@@ -423,14 +383,6 @@
         }
         .venue-actions .btn {
           max-width: none;
-        }
-      }
-      @media (max-width: 480px) {
-        .intro-story-layout {
-          gap: clamp(12px, 5vw, 24px);
-        }
-        .intro-story-image img {
-          width: clamp(90px, 28vw, 140px);
         }
       }
     </style>
