@@ -297,6 +297,29 @@
         top: 12px;
         right: 12px;
       }
+      .venue-column {
+        margin-bottom: 20px;
+      }
+      .venue-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 24px;
+      }
+      .venue-card p {
+        margin-bottom: 0;
+      }
+      .venue-actions {
+        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+      }
+      .venue-actions .btn {
+        width: 100%;
+        max-width: 220px;
+      }
       #eng-pics .good-times-item:hover .img-wrap,
       #eng-pics .good-times-item:focus .img-wrap {
         transform: translateY(-6px);
@@ -349,6 +372,17 @@
         }
         .intro-image-right {
           transform: translate3d(0, 60px, 0);
+        }
+        .venue-card {
+          align-items: flex-start;
+          text-align: left;
+        }
+        .venue-actions {
+          justify-content: flex-start;
+          width: 100%;
+        }
+        .venue-actions .btn {
+          max-width: none;
         }
       }
     </style>
@@ -534,7 +568,6 @@
     </div>
 </section> -->
 
-
 <section id="map" class="section-padding">
   <div class="text-center">
     <h3>Location</h3>
@@ -542,43 +575,34 @@
   </div>
   <div class="container">
     <div class="row">
-      <!-- Top left: Map -->
-      <div class="col-md-6" style="margin-bottom: 20px;">
+      <div class="col-md-6 venue-column">
         <div id="map-canvas" class="grid-box"></div>
       </div>
-      <!-- Top right: Photo -->
-      <div class="col-md-6" style="margin-bottom: 20px;">
+      <div class="col-md-6 venue-column">
         <div class="grid-box">
           <img src="/img/good_times/BD036471.JPG" alt="Beverly Hills Hotel">
         </div>
       </div>
     </div>
     <div class="row">
-      <!-- Bottom left: Another photo -->
-      <div class="col-md-6" style="margin-bottom: 20px;">
+      <div class="col-md-6 venue-column">
         <div class="grid-box">
           <img src="/img/good_times/BD036476.JPG" alt="Beverly Hills Hotel">
         </div>
       </div>
-      <!-- Bottom right: Room info / discount -->
-      <div class="col-md-6 text-center" style="display:flex; flex-direction:column; justify-content:center;">
-        <h3>Beverly Hills Hotel</h3>
-        <p>If you’d like to make a weekend of it, we’ve arranged a preferred rate for our guests staying at the Beverly Hills Hotel.</p>
-        <p>Please mention our wedding when booking directly with the hotel to receive the discount, subject to availability.</p>
-        <p><strong>Address:</strong><br>9641 Sunset Blvd, Beverly Hills, CA 90210</p>
-        {{!-- <div class="row text-center">
-          <div class="col-md-6" style="padding: 5px;">
-            <a class="btn btn-fill btn-large"
-              href="https://m.uber.com/ul/?action=setPickup&amp;pickup=my_location&amp;dropoff[formatted_address]=Beverly%20Hills%20Hotel%2C%209641%20Sunset%20Blvd%2C%20Beverly%20Hills%2C%20CA%2090210%2C%20USA&amp;dropoff[latitude]=34.0810&amp;dropoff[longitude]=-118.4143">
-              <i class="fa fa-taxi"></i>&nbsp;&nbsp;Book Uber
-            </a>
-          </div>
-          <div class="col-md-6" style="padding: 5px;">
+      <div class="col-md-6 text-center venue-column">
+        <div class="venue-card">
+          <h3>Beverly Hills Hotel</h3>
+          <p>If you’d like to make a weekend of it, we’ve arranged a preferred rate for our guests staying at the Beverly Hills Hotel.</p>
+          <p>Please mention our wedding when booking directly with the hotel to receive the discount, subject to availability.</p>
+          <p><strong>Address:</strong><br>9641 Sunset Blvd, Beverly Hills, CA 90210</p>
+          <p>We’ll be updating this page soon with alternate lodging and activity recommendations.</p>
+          <div class="venue-actions">
             <a class="btn btn-accent btn-large" href="#map">
               <i class="fa fa-map-marker"></i>&nbsp;&nbsp;Show map
             </a>
           </div>
-        </div> --}}
+        </div>
       </div>
     </div>
   </div>
