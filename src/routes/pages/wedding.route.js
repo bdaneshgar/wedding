@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
   if (authed) return res.redirect('/invitation');
 
   res.render('index', {
-    title: 'Brian ❤️ Hannah',
+    title: 'Brian & Hannah',
     requirePassword: true,
     error: hasError,
     active: 'home',
@@ -90,7 +90,7 @@ router.get('/invitation', (req, res) => {
   }
 
   res.render('wedding', {
-    title: 'Brian ❤️ Hannah',
+    title: 'Brian & Hannah',
     active: 'wedding',
     authed: true,
     galleryPhotos,
