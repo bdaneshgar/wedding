@@ -58,6 +58,7 @@ app.use(
         ],
         scriptSrc: [
           "'self'",
+          "https://www.withjoy.com",
           "https://cdnjs.cloudflare.com",
           "https://cdn.jsdelivr.net",
           "https://ajax.googleapis.com",
@@ -70,6 +71,7 @@ app.use(
         ],
         styleSrc: [
           "'self'",
+          "https://www.withjoy.com",
           "https://fonts.googleapis.com",
           "https://cdn.jsdelivr.net",
           "https://cdnjs.cloudflare.com",
@@ -77,6 +79,7 @@ app.use(
         ],
         fontSrc: [
           "'self'",
+          "https://www.withjoy.com",
           "https://fonts.gstatic.com",
           "https://cdn.jsdelivr.net",
           "https://cdnjs.cloudflare.com",
@@ -85,12 +88,14 @@ app.use(
         imgSrc: [
           "'self'",
           "data:",
+          "https://www.withjoy.com",
           "https://maps.googleapis.com",
           "https://maps.gstatic.com",
           "https://www.google-analytics.com"
         ],
         connectSrc: [
           "'self'",
+          "https://www.withjoy.com",
           "https://www.google-analytics.com",
           "https://maps.googleapis.com"
         ],
