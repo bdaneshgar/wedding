@@ -42,6 +42,7 @@ app.use(
         defaultSrc: ["'self'"],
         frameSrc: [
           "'self'",
+          "https://www.withjoy.com",
           "https://www.youtube.com",
           "https://player.vimeo.com",
           "https://www.google.com",
@@ -49,6 +50,7 @@ app.use(
         ],
         childSrc: [
           "'self'",
+          "https://www.withjoy.com",
           "https://www.youtube.com",
           "https://player.vimeo.com",
           "https://www.google.com",

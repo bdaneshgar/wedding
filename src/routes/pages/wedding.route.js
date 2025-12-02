@@ -18,6 +18,16 @@ const parseCookies = (req) => {
   }, {});
 };
 
+// --- PUBLIC RSVP PAGE (no password required) ---
+// projects list page (sample data)
+router.get('/rsvp', (req, res) => {
+  res.render('rsvp', {
+    title: 'Brian & Hannah - RSVP',
+    active: 'rsvp'
+  });
+});
+
+
 // home: password gate, redirect to invitation when authed
 router.get('/', (req, res) => {
   const cookies = parseCookies(req);
@@ -97,24 +107,5 @@ router.get('/invitation', (req, res) => {
   });
 });
 
-// projects list page (sample data)
-router.get('/projects', (req, res) => {
-  const cookies = parseCookies(req);
-  const authed = cookies.auth === 'ok';
-  if (!authed) return res.redirect('/?error=1');
-
-  const projects = [
-    { id: 'fax', name: 'marketing site refresh', owner: 'alice', status: 'in progress', updated: 'today' },
-    { id: 'project2', name: 'mobile app v2', owner: 'bob', status: 'planning', updated: 'yesterday' },
-    { id: 'project3', name: 'data pipeline revamp', owner: 'carol', status: 'blocked', updated: '3 days ago' },
-  ];
-
-  res.render('projects', {
-    title: 'Projects',
-    active: 'projects',
-    authed: true,
-    projects,
-  });
-});
 
 module.exports = router;
