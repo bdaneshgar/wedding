@@ -504,7 +504,7 @@
         <p class="invitation-location">Beverly Hills Hotel · Beverly Hills, California</p>
         <div class="invitation-actions">
           <a href="/wedding.ics" class="btn btn-large invitation-calendar-btn" download>Add to Calendar</a>
-          <button type="button" class="btn btn-accent btn-large invitation-rsvp-btn" data-rsvp-toggle aria-expanded="false">
+          <button type="button" class="btn btn-primary btn-large invitation-rsvp-btn" data-rsvp-toggle aria-expanded="false">
             RSVP Online
           </button>
         </div>
@@ -728,9 +728,6 @@
             if (src) {
               rsvpFrame.src = src;
             }
-          }
-          if ('scrollIntoView' in invitationCard) {
-            invitationCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         };
 
