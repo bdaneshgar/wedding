@@ -42,6 +42,7 @@ app.use(
         defaultSrc: ["'self'"],
         frameSrc: [
           "'self'",
+          "https://withjoy.com",
           "https://www.withjoy.com",
           "https://www.youtube.com",
           "https://player.vimeo.com",
@@ -50,6 +51,7 @@ app.use(
         ],
         childSrc: [
           "'self'",
+          "https://withjoy.com",
           "https://www.withjoy.com",
           "https://www.youtube.com",
           "https://player.vimeo.com",
@@ -58,6 +60,7 @@ app.use(
         ],
         scriptSrc: [
           "'self'",
+          "https://withjoy.com",
           "https://www.withjoy.com",
           "https://cdnjs.cloudflare.com",
           "https://cdn.jsdelivr.net",
@@ -71,6 +74,7 @@ app.use(
         ],
         styleSrc: [
           "'self'",
+          "https://withjoy.com",
           "https://www.withjoy.com",
           "https://fonts.googleapis.com",
           "https://cdn.jsdelivr.net",
@@ -79,6 +83,7 @@ app.use(
         ],
         fontSrc: [
           "'self'",
+          "https://withjoy.com",
           "https://www.withjoy.com",
           "https://fonts.gstatic.com",
           "https://cdn.jsdelivr.net",
@@ -88,6 +93,7 @@ app.use(
         imgSrc: [
           "'self'",
           "data:",
+          "https://withjoy.com",
           "https://www.withjoy.com",
           "https://maps.googleapis.com",
           "https://maps.gstatic.com",
@@ -95,6 +101,7 @@ app.use(
         ],
         connectSrc: [
           "'self'",
+          "https://withjoy.com",
           "https://www.withjoy.com",
           "https://www.google-analytics.com",
           "https://maps.googleapis.com"
