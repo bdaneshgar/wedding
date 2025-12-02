@@ -125,24 +125,18 @@
         pointer-events: none;
         opacity: 0;
       }
-      /* Explicit background color rules for sections */
+      /* Explicit background color rules for sections after #rsvp and others */
       #intro {
         background-color: #f9f9f9;
-      }
-      #invitation {
-        background-color: #f8f8f4;
       }
       #map {
         background-color: #ffffff;
       }
+      #rsvp {
+        background-color: #f9f9f9;
+      }
       footer {
         background-color: #ffffff;
-      }
-      .invitation-stage {
-        min-height: min(900px, 95vh);
-        display: flex;
-        align-items: center;
-        justify-content: center;
       }
       .invitation-card {
         border: none;
@@ -150,12 +144,6 @@
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1);
         background: rgba(255, 255, 255, 0.94);
         font-family: 'Libre Baskerville', serif;
-        width: 100%;
-        max-width: 780px;
-        margin: 0 auto;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
       }
       .invitation-card .card-body {
         padding: 48px 40px;
@@ -197,53 +185,8 @@
       }
       .invitation-location {
         font-family: 'Libre Baskerville', serif;
-        color: rgba(66, 78, 92, 0.75);
-        letter-spacing: 0.32em;
-        text-transform: uppercase;
-        line-height: 1.9;
-        max-width: 560px;
-        margin: 0 auto;
-      }
-      .invitation-actions {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
-        margin-top: 36px;
-      }
-      .invitation-actions .btn {
-        min-width: 210px;
-      }
-      .invitation-calendar-btn {
-        border: 2px solid rgba(66, 78, 92, 0.25);
-        color: #424e5c;
-        background: transparent;
-      }
-      .invitation-calendar-btn:hover,
-      .invitation-calendar-btn:focus {
-        border-color: rgba(66, 78, 92, 0.45);
-        background: rgba(66, 78, 92, 0.08);
-        color: #424e5c;
-      }
-      .invitation-rsvp-btn {
-        letter-spacing: 0.2em;
-      }
-      .invitation-rsvp-container {
-        display: none;
-        width: 100%;
-        background: #fff;
-      }
-      .invitation-rsvp-iframe {
-        width: 100%;
-        min-height: clamp(520px, 80vh, 860px);
-        border: none;
-        display: block;
-      }
-      .invitation-card--rsvp .card-body {
-        display: none;
-      }
-      .invitation-card--rsvp .invitation-rsvp-container {
-        display: block;
+        color: rgba(66, 78, 92, 0.7);
+        margin-bottom: 36px;
       }
       .section-heading {
         font-family: 'Playfair Display', serif;
@@ -467,7 +410,7 @@
                         </ul>
                         <ul class="member-actions">
                             <li><a href="#map" class="login">Venue</a></li>
-                            <li><a href="#invitation" class="btn-white btn-small">RSVP</a></li>
+                            {{!-- <li><a href="#rsvp" class="btn-white btn-small">RSVP</a></li> --}}
                         </ul>
                     </nav>
                 </div>
@@ -492,31 +435,16 @@
 </section>
 
 <section id="invitation" class="section-padding">
-  <div class="container invitation-stage">
+  <div class="container d-flex align-items-center justify-content-center" style="min-height: 70vh;">
     <div class="card invitation-card text-center">
-      <div class="card-body invitation-details">
+      <div class="card-body">
         <img src="/img/logo-lg.png" alt="Brian &amp; Hannah monogram" class="invitation-logo">
         <h2 class="invitation-names mb-2">BRIAN DANESHGAR</h2>
         <div class="invitation-ampersand">&amp;</div>
         <h2 class="invitation-names mb-4">HANNAH HALEY</h2>
         <h3 class="invitation-date">MAY 24, 2026</h3>
         <p class="invitation-location">Beverly Hills Hotel · Beverly Hills, California</p>
-        <div class="invitation-actions">
-          <a href="/wedding.ics" class="btn btn-large invitation-calendar-btn" download>Add to Calendar</a>
-          <button type="button" class="btn btn-primary btn-large invitation-rsvp-btn" data-rsvp-toggle aria-expanded="false">
-            RSVP Online
-          </button>
-        </div>
-      </div>
-      <div class="invitation-rsvp-container" data-rsvp-container>
-        <iframe
-          title="RSVP Form"
-          class="invitation-rsvp-iframe"
-          data-rsvp-iframe
-          data-rsvp-src="https://brianandhannah.rsvpify.com"
-          loading="lazy"
-          referrerpolicy="no-referrer"
-        ></iframe>
+        <a href="/wedding.ics" class="btn btn-accent btn-large rsvp-btn" download>Add to Calendar</a>
       </div>
     </div>
   </div>
@@ -783,33 +711,6 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
 <script>
   window.addEventListener('DOMContentLoaded', function () {
-    var invitationCard = document.querySelector('.invitation-card');
-    if (invitationCard) {
-      var rsvpToggle = invitationCard.querySelector('[data-rsvp-toggle]');
-      var rsvpFrame = invitationCard.querySelector('[data-rsvp-iframe]');
-      if (rsvpToggle) {
-        var openRsvp = function () {
-          if (invitationCard.classList.contains('invitation-card--rsvp')) {
-            return;
-          }
-          invitationCard.classList.add('invitation-card--rsvp');
-          rsvpToggle.setAttribute('aria-expanded', 'true');
-          rsvpToggle.setAttribute('disabled', 'disabled');
-          if (rsvpFrame && !rsvpFrame.src) {
-            var src = rsvpFrame.getAttribute('data-rsvp-src');
-            if (src) {
-              rsvpFrame.src = src;
-            }
-          }
-        };
-
-        rsvpToggle.addEventListener('click', function (event) {
-          event.preventDefault();
-          openRsvp();
-        });
-      }
-    }
-
     var introSection = document.getElementById('intro');
     if (!introSection) {
       return;
