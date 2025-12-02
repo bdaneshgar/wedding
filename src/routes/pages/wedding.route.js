@@ -107,5 +107,43 @@ router.get('/invitation', (req, res) => {
   });
 });
 
+// invitation
+router.get('/invitation-dev', (req, res) => {
+  const cookies = parseCookies(req);
+  const authed = cookies.auth === 'ok';
+  if (!authed) {
+    console.warn('[invitation] unauthorized access attempt');
+    return res.redirect('/?error=1');
+  }
+
+  let galleryPhotos = [];
+  try {
+    const files = fs.readdirSync(GOOD_TIMES_DIR, { withFileTypes: true });
+    galleryPhotos = files
+      .filter((entry) => entry.isFile())
+      .map((entry) => entry.name)
+      .filter((name) => ALLOWED_EXTENSIONS.has(path.extname(name).toLowerCase()))
+      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
+      .map((name) => {
+        const base = name.replace(/\.[^.]+$/, '');
+        const alt = base.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim() || 'Gallery image';
+        const webPath = encodeURI(`/img/good_times/${name}`);
+        return { src: webPath, href: webPath, alt };
+      });
+    console.log(`[invitation] loaded ${galleryPhotos.length} gallery images`);
+  } catch (err) {
+    console.error('[invitation] failed to load gallery images', err);
+    galleryPhotos = [];
+  }
+
+  res.render('wedding-dev', {
+    title: 'Brian & Hannah',
+    active: 'wedding-dev',
+    authed: true,
+    galleryPhotos,
+  });
+});
+
+
 
 module.exports = router;

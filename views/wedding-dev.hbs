@@ -1,0 +1,874 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Brian & Hannah</title>
+    <meta name="description" content="We would like to invite you to our big day.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="Brian & Brian getting married">
+    <meta property="og:description" content="We would like to invite you to our big day.">
+    <meta property="og:image" content="https://brianandhannahgettingmarried.com/img/hero-min.jpg">
+    <meta property="og:type" content="website">
+    {{!-- <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> --}}
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+
+    <script>
+        // load css files from CDN if local node_modules fail
+        function loadCssFromCDN(css) {
+            // create new link tag
+            const link = document.createElement('link');
+            if (css === 'animate.css') {
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css';
+            } else if (css === 'font-awesome.css') {
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+            }
+            link.rel = 'stylesheet';
+
+            // add link tag to head section
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+
+        // load js files from CDN if local node_modules fail
+        function loadJsFromCDN(js) {
+            if (js === 'waypoints.js') {
+                document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"><\/script>');
+            } else if (js === 'jquery.js') {
+                document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><\/script>');
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="css/queries.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      .hero {
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+      .hero-content img {
+        width: min(420px, 80vw);
+        margin: 0 auto;
+        display: block;
+      }
+      .hero .container {
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+      .confetti-canvas {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 4000;
+      }
+      .intro-image {
+        opacity: 0;
+        transition: transform 0.85s ease-out, opacity 0.85s ease-out;
+        will-change: transform, opacity;
+      }
+      .intro-image-left {
+        transform: translate3d(-200px, 0, 0);
+      }
+      .intro-image-right {
+        transform: translate3d(200px, 0, 0);
+      }
+      .intro-image-active {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
+      [data-intro-trigger] {
+        display: block;
+        width: 100%;
+        height: 1px;
+        margin-top: 0;
+        pointer-events: none;
+        opacity: 0;
+      }
+      /* Explicit background color rules for sections after #rsvp and others */
+      #intro {
+        background-color: #f9f9f9;
+      }
+      #map {
+        background-color: #ffffff;
+      }
+      #rsvp {
+        background-color: #f9f9f9;
+      }
+      footer {
+        background-color: #ffffff;
+      }
+      .invitation-card {
+        border: none;
+        border-radius: 18px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.94);
+        font-family: 'Libre Baskerville', serif;
+      }
+      .invitation-card .card-body {
+        padding: 48px 40px;
+      }
+      .invitation-logo {
+        width: min(280px, 70%);
+        margin: 0 auto 24px;
+        display: block;
+      }
+      .invitation-names {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        letter-spacing: 0.3em;
+        font-size: clamp(2.4rem, 6vw, 3.4rem);
+      }
+      .invitation-ampersand {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        margin: 18px 0 22px;
+        color: rgba(66, 78, 92, 0.7);
+        font-family: 'Libre Baskerville', serif;
+        font-size: 1.3rem;
+        letter-spacing: 0.2em;
+      }
+      .invitation-ampersand::before,
+      .invitation-ampersand::after {
+        content: '';
+        width: 44px;
+        height: 1px;
+        background: rgba(66, 78, 92, 0.25);
+      }
+      .invitation-date {
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 0.45em;
+        font-size: 1.65rem;
+        margin-bottom: 18px;
+      }
+      .invitation-location {
+        font-family: 'Libre Baskerville', serif;
+        color: rgba(66, 78, 92, 0.7);
+        margin-bottom: 36px;
+      }
+      .section-heading {
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        font-size: 2.1em;
+        margin-bottom: 0.75em;
+      }
+      .section-subtitle {
+        max-width: 660px;
+        margin: 0 auto 2.25em;
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 1.05em;
+      }
+      .schedule-card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px 36px;
+      }
+      .schedule-date {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.28em;
+        margin-bottom: 28px;
+      }
+      .schedule-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 20px;
+      }
+      .schedule-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 22px;
+        border-radius: 16px;
+        background: rgba(244, 239, 233, 0.55);
+      }
+      .schedule-item h5 {
+        margin: 0;
+        font-size: 1.25rem;
+        letter-spacing: 0.08em;
+        color: var(--heading-color);
+      }
+      .schedule-item .time {
+        font-weight: 500;
+        color: var(--accent-dark);
+        margin-left: 16px;
+        white-space: nowrap;
+      }
+      .schedule-footer {
+        margin-top: 32px;
+        font-size: 1.5rem;
+        color: var(--muted-color);
+      }
+           /* Map/photo grid sizing */
+      #map .grid-box {
+        height: 700px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #eee; /* placeholder while map/image loads */
+      }
+      #map .grid-box img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+      }
+      @media (max-width: 991px) {
+        #map .grid-box { height: 500px; }
+      }
+      @media (max-width: 767px) {
+        #map .grid-box { height: 380px; }
+      }
+      #eng-pics .good-times-grid {
+        column-count: 4;
+        column-gap: 24px;
+        margin-top: 40px;
+      }
+      #eng-pics .good-times-item {
+        break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        column-break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 24px;
+        display: inline-block;
+        width: 100%;
+      }
+      #eng-pics .good-times-item .img-wrap {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      #eng-pics .good-times-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      #eng-pics .good-times-item .overlay {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
+      }
+      #eng-pics .good-times-item i {
+        font-size: 20px;
+        top: 12px;
+        right: 12px;
+      }
+      .venue-column {
+        margin-bottom: 20px;
+      }
+      .venue-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 24px;
+      }
+      .venue-card p {
+        margin-bottom: 0;
+      }
+      .venue-actions {
+        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+      }
+      .venue-actions .btn {
+        width: 100%;
+        max-width: 220px;
+      }
+      #eng-pics .good-times-item:hover .img-wrap,
+      #eng-pics .good-times-item:focus .img-wrap {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+      }
+      @media (max-width: 1199px) {
+        #eng-pics .good-times-grid {
+          column-count: 5;
+        }
+      }
+      @media (max-width: 991px) {
+        #eng-pics .good-times-grid {
+          column-count: 4;
+      }
+      @media (max-width: 575px) {
+        #eng-pics .good-times-grid {
+          column-count: 1;
+        }
+        .schedule-card {
+          padding: 32px 24px;
+        }
+        .schedule-item {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          text-align: left;
+        }
+        .schedule-item .time {
+          margin-left: 0;
+        }
+      }
+      @media (max-width: 991px) {
+        .intro-image-left {
+          transform: translate3d(-120px, 0, 0);
+        }
+        .intro-image-right {
+          transform: translate3d(120px, 0, 0);
+        }
+      }
+      @media (max-width: 767px) {
+        .hero .container {
+          padding-top: 60px;
+          min-height: auto;
+        }
+        .hero-content img {
+          width: min(320px, 90vw);
+        }
+        .intro-image-left {
+          transform: translate3d(0, 60px, 0);
+        }
+        .intro-image-right {
+          transform: translate3d(0, 60px, 0);
+        }
+        .venue-card {
+          align-items: flex-start;
+          text-align: left;
+        }
+        .venue-actions {
+          justify-content: flex-start;
+          width: 100%;
+        }
+        .venue-actions .btn {
+          max-width: none;
+        }
+      }
+      
+    /*RSVPIFY*/
+      .rsvpify-wrapper {
+        width: 100%;
+        height: 80vh; /* adjust: 65–100vh depending on how tall you want it */
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      }
+
+      .rsvpify-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      #rsvp .rsvp-title {
+        font-family: "Playfair Display", serif;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+
+      #rsvp .rsvp-subtitle {
+        font-size: 1rem;
+        opacity: 0.7;
+        margin-bottom: 1.5rem;
+      }
+    </style>
+</head>
+<body id="top">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <section class="navigation">
+        <header>
+            <div class="header-content">
+                <div class="logo"><a href="#"><img src="/img/logo.png" alt="Logo"></a></div>
+                <div class="header-nav">
+                    <nav>
+                        <ul class="primary-nav">
+                            <li><a href="#intro">How we met</a></li>
+                            <li><a href="#schedule">Schedule</a></li>
+                            <li><a href="#registry">Registry</a></li>
+                            <li><a href="#eng-pics">Photo Gallery</a></li>
+                        </ul>
+                        <ul class="member-actions">
+                            <li><a href="#map" class="login">Venue</a></li>
+                            <li><a href="#rsvp" class="btn-white btn-small">RSVP</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="navicon">
+                    <a class="nav-toggle" href="#"><span></span></a>
+                </div>
+            </div>
+        </header>
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="hero-content text-center">
+                    <!--<h1>Brian and Hannah</h1>-->
+                    <!--<p class="intro">Brian & Hannah are getting married!</p>-->
+                    <!--<a href="#" class="btn btn-fill btn-large btn-margin-right">Scroll Down</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="down-arrow floating-arrow"><a href="#invitation"><i class="fa fa-angle-down"></i></a></div>
+</section>
+
+<section id="invitation" class="section-padding">
+  <div class="container d-flex align-items-center justify-content-center" style="min-height: 70vh;">
+    <div class="card invitation-card text-center">
+      <div class="card-body">
+        <img src="/img/logo-lg.png" alt="Brian &amp; Hannah monogram" class="invitation-logo">
+        <h2 class="invitation-names mb-2">BRIAN DANESHGAR</h2>
+        <div class="invitation-ampersand">&amp;</div>
+        <h2 class="invitation-names mb-4">HANNAH HALEY</h2>
+        <h3 class="invitation-date">MAY 24, 2026</h3>
+        <p class="invitation-location">Beverly Hills Hotel · Beverly Hills, California</p>
+        <a href="/wedding.ics" class="btn btn-accent btn-large rsvp-btn" download>Add to Calendar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3 class="header">How we met</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 hidden-sm hidden-xs"><img src="/img/_hannah.png" class="intro-image intro-image-left" data-intro-image></div>
+            <div class="col-md-6">
+                <p>
+                    Brian and Hannah first met in the summer of 2018 on a Birthright trip to Israel. Though he was instantly drawn to her, life carried them in different directions and the moment passed. Four years later, their paths crossed again at Track Club Los Angeles in Santa Monica. What began as a familiar face soon revealed itself to be something much deeper. Both graduates of NYU, who had somehow missed each other during their college years, Brian and Hannah came to see that their lives had been quietly weaving together all along. It felt certain that, one way or another, they were destined to meet. In 2025, Brian proposed to Hannah at the Prospect Park Boathouse in Brooklyn, marking the beginning of their forever.
+                </p>
+            </div>
+            <div class="col-md-3 hidden-sm hidden-xs"><img src="/img/_brian.png" class="intro-image intro-image-right" data-intro-image></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="/img/_hannah.png" class="intro-image intro-image-left" data-intro-image></div>
+            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="/img/_brian.png" class="intro-image intro-image-right" data-intro-image></div>
+        </div>
+        <div class="intro-trigger-sentinel" data-intro-trigger aria-hidden="true"></div>
+    </div>
+</section>
+
+<section class="schedule section-padding content-section section-surface-white" id="schedule">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 class="header section-heading">Wedding Celebration</h3>
+                <p class="section-subtitle">An evening at the Beverly Hills Hotel filled with drinks, dinner, and dancing.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+                <div class="schedule-card text-center">
+                    <p class="schedule-date">Sunday, May 24, 2026</p>
+                    <ul class="schedule-list">
+                        <li class="schedule-item">
+                            <h5>Cocktails</h5>
+                            <span class="time">5:30 PM – 7:00 PM</span>
+                        </li>
+                        <li class="schedule-item">
+                            <h5>Ceremony</h5>
+                            <span class="time">7:00 PM – 8:00 PM</span>
+                        </li>
+                        <li class="schedule-item">
+                            <h5>Dinner &amp; Dancing</h5>
+                            <span class="time">8:00 PM – Late</span>
+                        </li>
+                    </ul>
+                    <div style="margin-top: 24px;">
+                        <a href="/wedding.ics" class="btn btn-accent btn-large" download>Add to Calendar</a>
+                    </div>
+                    <p class="schedule-footer"><strong>Dress Code:</strong> Black Tie<br>More details to come.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="registry" class="section-padding" style="background-color:#faf9f6;">
+  <div class="container text-center">
+    <h3 class="header">Registry</h3>
+    <p class="section-subtitle">
+      Celebrating with you is the best gift. 
+      If you'd like to celebrate with a gift, we've linked a registry below.
+    </p>
+    <a href="https://www.myregistry.com/wedding-registry/hannah-haley-and-brian-daneshgar-los-angeles-ca/5046947"
+       target="_blank" rel="noopener noreferrer"
+       class="btn btn-accent btn-large">
+       View Our Registry
+    </a>
+  </div>
+</section>
+
+<section id="eng-pics" class="section-padding">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3 class="header">Photo Gallery</h3>
+            </div>
+        </div>
+        {{#if galleryPhotos.length}}
+        <div class="good-times-grid">
+            {{#each galleryPhotos}}
+            <div class="good-times-item">
+                <a class="fancybox" rel="good-times" href="{{this.href}}">
+                    <div class="img-wrap">
+                        <div class="overlay"><i class="fa fa-search"></i></div>
+                        <img
+                          data-lazy-image
+                          data-src="{{this.src}}"
+                          {{#if this.srcset}}data-srcset="{{this.srcset}}"{{/if}}
+                          alt="{{this.alt}}"
+                          loading="lazy"
+                          decoding="async">
+                        <noscript>
+                          <img src="{{this.src}}" alt="{{this.alt}}">
+                        </noscript>
+                    </div>
+                </a>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <p>No photos yet—add images to <code>public/img/good_times</code> to populate the gallery.</p>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+    <div class="container">
+        <div class="row hidden-lg hidden-md hidden-xs">
+            <div class="col-xs-12 section-border section-padding"></div>
+        </div>
+    </div>
+</section>
+
+<!-- <section id="video-bg" class="hidden-sm hidden-xs">
+    <div id="bgndVideo" class="player"
+         data-property="{videoURL:'https://www.youtube.com/watch?v=UYUiNhMay1Y',containment:'#video-bg',autoPlay:true, mute:true, showControls:false, startAt:80, stopAt:259, opacity:1}">
+    </div>
+    <div id="video-content">
+        <h5>Beverly Hills Hotel</h5>
+    </div>
+</section> -->
+
+<section id="map" class="section-padding">
+  <div class="text-center">
+    <h3>Venue</h3>
+    <p>Beverly Hills Hotel</p>
+    <p>9641 Sunset Blvd, Beverly Hills, CA 90210</p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 venue-column">
+        <div id="map-canvas" class="grid-box"></div>
+      </div>
+      <div class="col-md-6 venue-column">
+        <div class="grid-box">
+          <img src="/img/BD036471.JPG" alt="Beverly Hills Hotel">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 venue-column">
+        <div class="grid-box">
+          <img src="/img/BD036476.JPG" alt="Beverly Hills Hotel">
+        </div>
+      </div>
+      <div class="col-md-6 text-center venue-column">
+        <div class="venue-card">
+          <p>If you’d like to make a weekend of it, we’ve arranged a preferred rate for our guests.</p>
+          <p>Please mention our wedding when booking directly to receive the discount.</p>
+          <p>We’ll be updating this page soon with alternate lodging and activity recommendations.</p>
+          <div class="venue-actions">
+            <a class="btn btn-accent btn-large" href="#map">
+              <i class="fa fa-map-marker"></i>&nbsp;&nbsp;Show map
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="rsvp text-center" id="rsvp">
+
+  <div class="container">
+      <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+
+              <h3 class="rsvp-title">RSVP</h3>
+              <p class="rsvp-subtitle">Please let us know if you will be joining us.</p>
+
+              <!-- RSVPify Embed Wrapper -->
+              <div class="rsvpify-wrapper">
+                  <iframe
+                      src="https://brianandhannah.rsvpify.com"
+                      class="rsvpify-iframe"
+                      title="RSVP"
+                      allowfullscreen
+                  ></iframe>
+              </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center content">
+                <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up"></i></a></span>
+                <p>Brian <span class="fa fa-heart pulse2"></span> Hannah</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/js/vendor/jquery-1.11.2.min.js" onerror="loadJsFromCDN('jquery.js')"></script>
+<script src="/js/vendor/bootstrap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" defer></script>
+<script src="/js/jquery.fancybox.pack.js" defer></script>
+<script src="/js/jquery.flexslider-min.js" defer></script>
+<script src="/js/vendor/ouical.js" defer></script>
+<script src="/js/scripts.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    var introSection = document.getElementById('intro');
+    if (!introSection) {
+      return;
+    }
+
+    var introImages = Array.prototype.slice.call(introSection.querySelectorAll('[data-intro-image]'));
+    if (!introImages.length) {
+      return;
+    }
+
+    var sentinel = introSection.querySelector('[data-intro-trigger]');
+    if (!sentinel) {
+      sentinel = document.createElement('span');
+      sentinel.setAttribute('data-intro-trigger', '');
+      sentinel.setAttribute('aria-hidden', 'true');
+      sentinel.style.display = 'block';
+      sentinel.style.width = '100%';
+      sentinel.style.height = '1px';
+      sentinel.style.pointerEvents = 'none';
+      sentinel.style.opacity = '0';
+      introSection.appendChild(sentinel);
+    }
+
+    var activated = false;
+
+    var activateSlides = function () {
+      if (activated) {
+        return;
+      }
+      activated = true;
+      introImages.forEach(function (img, index) {
+        window.setTimeout(function () {
+          img.classList.add('intro-image-active');
+        }, index * 80);
+      });
+    };
+
+    var fallbackTimer = window.setTimeout(activateSlides, 6000);
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            observer.disconnect();
+            window.clearTimeout(fallbackTimer);
+            window.setTimeout(activateSlides, 120);
+          }
+        });
+      }, { threshold: 0, rootMargin: '-50% 0px 0px 0px' });
+
+      observer.observe(sentinel);
+    } else {
+      var onScroll = function () {
+        if (activated) {
+          return;
+        }
+        var rect = sentinel.getBoundingClientRect();
+        var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+        if (rect.top <= viewportHeight) {
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('resize', onScroll);
+          window.clearTimeout(fallbackTimer);
+          window.setTimeout(activateSlides, 120);
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      onScroll();
+    }
+  });
+</script>
+<script>
+  window.addEventListener('load', function () {
+    var lazyImages = Array.prototype.slice.call(document.querySelectorAll('[data-lazy-image]'));
+    if (!lazyImages.length) {
+      return;
+    }
+
+    var hydrate = function (img) {
+      if (img.dataset.srcset) {
+        img.srcset = img.dataset.srcset;
+        img.removeAttribute('data-srcset');
+      }
+      if (img.dataset.src) {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+      }
+      img.removeAttribute('data-lazy-image');
+    };
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            return;
+          }
+          observer.unobserve(entry.target);
+          hydrate(entry.target);
+        });
+      }, { rootMargin: '200px 0px', threshold: 0.05 });
+
+      lazyImages.forEach(function (img) {
+        observer.observe(img);
+      });
+    } else {
+      lazyImages.forEach(hydrate);
+    }
+  });
+</script>
+<script>
+  window.addEventListener('load', function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    function launchConfetti() {
+      var settings = {
+        particleCount: 180,
+        origin: { y: 0.75 },
+        gravity: 0.6,
+        ticks: 320
+      };
+
+      confetti(Object.assign({}, settings, { spread: 70, scalar: 1.05 }));
+      confetti(Object.assign({}, settings, { spread: 110, decay: 0.92, scalar: 0.9 }));
+    }
+
+    if (typeof confetti === 'function') {
+      launchConfetti();
+    } else {
+      var tries = 0;
+      var maxTries = 20;
+      var interval = window.setInterval(function () {
+        tries += 1;
+        if (typeof confetti === 'function') {
+          window.clearInterval(interval);
+          launchConfetti();
+        } else if (tries >= maxTries) {
+          window.clearInterval(interval);
+        }
+      }, 150);
+    }
+  });
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHBtT_HiKSA5sN-ZxJ5XFVrhKWgZAC9Ng&callback=initWeddingMap"></script>
+<script>
+  function initWeddingMap() {
+    var mapCanvas = document.getElementById('map-canvas');
+    if (!mapCanvas || typeof google === 'undefined' || !google.maps) {
+      console.warn('[invitation] map canvas unavailable');
+      return;
+    }
+
+    var bhHotel = new google.maps.LatLng(34.0810, -118.4143);
+    var map = new google.maps.Map(mapCanvas, {
+      zoom: 12,
+      center: bhHotel,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      streetViewControl: false,
+      fullscreenControl: false,
+      mapTypeControl: false,
+      zoomControl: true
+    });
+
+    new google.maps.Marker({
+      position: bhHotel,
+      map: map,
+      title: 'Beverly Hills Hotel',
+      animation: google.maps.Animation.DROP
+    });
+
+    google.maps.event.addDomListener(window, 'resize', function () {
+      map.setCenter(bhHotel);
+    });
+  }
+</script>
+</body>
+</html>
