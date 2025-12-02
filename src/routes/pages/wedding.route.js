@@ -20,10 +20,10 @@ const parseCookies = (req) => {
 
 // --- PUBLIC RSVP PAGE (no password required) ---
 // projects list page (sample data)
-router.get('/rsvp', (req, res) => {
-  res.render('rsvp', {
+router.get('/withjoy', (req, res) => {
+  res.render('withjoy', {
     title: 'Brian & Hannah - RSVP',
-    active: 'rsvp'
+    active: 'withjoy'
   });
 });
 

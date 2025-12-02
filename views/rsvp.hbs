@@ -1,35 +1,91 @@
-<style>
-  .rsvp-wrapper {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #faf9f6;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{title}} | Brian & Hannah</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  .rsvp-iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-
-    /* Force scale up for Joy embed (fixes mobile) */
-    transform: scale(1.25);
-    transform-origin: top center;
-  }
-
-  @media (min-width: 768px) {
-    /* Desktop gets normal scale */
-    .rsvp-iframe {
-      transform: none;
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #faf9f6;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-  }
-</style>
 
-<div class="rsvp-wrapper">
-  <iframe
-    class="rsvp-iframe"
-    src="https://withjoy.com/brian-and-hannah-may-26/rsvp"
-    loading="lazy">
-  </iframe>
-</div>
+    .rsvpify-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .rsvpify-header {
+      text-align: center;
+      padding: 1.5rem 1rem 0.5rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-family: "Playfair Display", serif;
+      font-size: 0.9rem;
+    }
+
+    .rsvpify-title {
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    .rsvpify-frame-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 0 0 1.5rem;
+    }
+
+    .rsvpify-frame-inner {
+      flex: 1;
+      display: flex;
+    }
+
+    .rsvpify-frame-inner iframe {
+      border: none;
+      width: 100%;
+      min-height: 80vh;
+    }
+
+    @media (max-width: 768px) {
+      .rsvpify-header {
+        padding-top: 1rem;
+        font-size: 0.8rem;
+      }
+
+      .rsvpify-title {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="rsvpify-wrapper">
+    <div class="rsvpify-header">
+      BRIAN &amp; HANNAH
+    </div>
+    <h1 class="rsvpify-title">RSVP</h1>
+
+    <div class="rsvpify-frame-container">
+      <div class="rsvpify-frame-inner">
+        {{!-- Replace src with your RSVPify embed URL --}}
+        <iframe
+          src="https://brianandhannah.rsvpify.com/embed"
+          title="RSVP"
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

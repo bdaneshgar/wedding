@@ -42,6 +42,8 @@ app.use(
         defaultSrc: ["'self'"],
         frameSrc: [
           "'self'",
+          "https://rsvpify.com",
+          "https://www.rsvpify.com",
           "https://withjoy.com",
           "https://www.withjoy.com",
           "https://www.youtube.com",
@@ -51,6 +53,8 @@ app.use(
         ],
         childSrc: [
           "'self'",
+          "https://rsvpify.com",
+          "https://www.rsvpify.com",
           "https://withjoy.com",
           "https://www.withjoy.com",
           "https://www.youtube.com",
@@ -60,6 +64,8 @@ app.use(
         ],
         scriptSrc: [
           "'self'",
+          "https://rsvpify.com",
+          "https://www.rsvpify.com",
           "https://withjoy.com",
           "https://www.withjoy.com",
           "https://cdnjs.cloudflare.com",
@@ -74,6 +80,8 @@ app.use(
         ],
         styleSrc: [
           "'self'",
+          "https://rsvpify.com",
+          "https://www.rsvpify.com",
           "https://withjoy.com",
           "https://www.withjoy.com",
           "https://fonts.googleapis.com",
@@ -83,6 +91,8 @@ app.use(
         ],
         fontSrc: [
           "'self'",
+          "https://rsvpify.com",
+          "https://www.rsvpify.com",
           "https://withjoy.com",
           "https://www.withjoy.com",
           "https://fonts.gstatic.com",
@@ -93,6 +103,8 @@ app.use(
         imgSrc: [
           "'self'",
           "data:",
+          "https://rsvpify.com",
+          "https://www.rsvpify.com",
           "https://withjoy.com",
           "https://www.withjoy.com",
           "https://maps.googleapis.com",
@@ -101,6 +113,8 @@ app.use(
         ],
         connectSrc: [
           "'self'",
+          "https://rsvpify.com",
+          "https://www.rsvpify.com",
           "https://withjoy.com",
           "https://www.withjoy.com",
           "https://www.google-analytics.com",
@@ -175,6 +189,13 @@ try {
 try {
   const faxRouter = require('./routes/pages/fax.route');
   app.use('/', faxRouter);
+} catch (e) {
+  // optional
+}
+
+try {
+  const rsvpRouter = require('./routes/pages/rsvp.route');
+  app.use('/', rsvpRouter);
 } catch (e) {
   // optional
 }
