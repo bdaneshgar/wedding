@@ -387,35 +387,33 @@
           max-width: none;
         }
       }
-      
+
     /*RSVPIFY*/
-      .rsvpify-wrapper {
+      /* Make the section itself tall */
+      section#rsvp {
+        position: relative;
         width: 100%;
-        height: 80vh; /* adjust: 65–100vh depending on how tall you want it */
-        margin-top: 2rem;
-        margin-bottom: 3rem;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        min-height: 90vh; /* Feel free to make this 100vh if needed */
+        padding: 0 !important; /* remove theme padding */
+        margin: 0 !important;
+        background-color: #f8f8f8; /* or match your site's section background */
       }
 
-      .rsvpify-iframe {
+      /* Full bleed wrapper */
+      .rsvp-full-container {
         width: 100%;
         height: 100%;
-        border: none;
+        padding: 0;
+        margin: 0 auto;
+        display: flex;
       }
 
-      #rsvp .rsvp-title {
-        font-family: "Playfair Display", serif;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        margin-bottom: 0.5rem;
-      }
-
-      #rsvp .rsvp-subtitle {
-        font-size: 1rem;
-        opacity: 0.7;
-        margin-bottom: 1.5rem;
+      /* Force iframe to fill entire container */
+      .rsvpify-full-iframe {
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
+        display: block;
       }
     </style>
 </head>
@@ -649,26 +647,12 @@
 
 
 <section class="rsvp text-center" id="rsvp">
-
-  <div class="container">
-      <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-
-              <h3 class="rsvp-title">RSVP</h3>
-              <p class="rsvp-subtitle">Please let us know if you will be joining us.</p>
-
-              <!-- RSVPify Embed Wrapper -->
-              <div class="rsvpify-wrapper">
-                  <iframe
-                      src="https://brianandhannah.rsvpify.com"
-                      class="rsvpify-iframe"
-                      title="RSVP"
-                      allowfullscreen
-                  ></iframe>
-              </div>
-
-            </div>
-        </div>
+    <div class="rsvp-full-container">
+        <iframe
+            src="https://brianandhannah.rsvpify.com"
+            class="rsvpify-full-iframe"
+            allowfullscreen
+        ></iframe>
     </div>
 </section>
 
