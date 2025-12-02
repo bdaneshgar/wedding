@@ -2,175 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>{{title}} | Hannah & Brian</title>
+  <title>RSVP | Hannah & Brian</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Optional: upscale serif for names -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-    }
-
-    body {
       background-color: #faf9f6;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: #111;
     }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background-color: #faf9f6;
-    }
-
-    header.rsvp-header {
+    .header {
       text-align: center;
-      padding: 1.75rem 1rem 1rem;
+      padding: 2rem 1rem 1rem;
     }
 
-    .rsvp-names {
+    .names {
       font-family: "Playfair Display", serif;
       font-size: 1.7rem;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
     }
 
-    .rsvp-hebrew {
-      margin-top: 0.35rem;
-      font-size: 0.95rem;
-      letter-spacing: 0.16em;
+    .hebrew {
+      margin-top: 0.3rem;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
     }
 
-    .rsvp-details {
-      margin-top: 0.6rem;
+    .details {
+      margin-top: 0.5rem;
       font-size: 0.9rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .heart-logo-wrapper {
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .heart-logo {
-      max-width: 380px;
-      width: 80%;
-      height: auto;
-    }
-
-    .rsvp-title {
-      margin: 1.5rem 0 0.75rem;
-      text-align: center;
-      font-family: "Playfair Display", serif;
-      font-size: 1.15rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-    }
-
-    /* Main area that should stretch to the bottom of the viewport */
-    .rsvp-main {
-      flex: 1;
+    .embed-fullscreen {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
-      padding: 0 0 1.5rem;
     }
 
-    .rsvp-embed-container {
+    .embed-fullscreen > script {
       flex: 1;
-      display: flex;
-      width: 100%;
-      /* Optional: a little horizontal padding on large screens */
-      padding: 0 0.5rem;
-      box-sizing: border-box;
-    }
-
-    .rsvp-iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 18px;
-      box-shadow: 0 12px 38px rgba(0, 0, 0, 0.06);
-      background-color: #fff;
-    }
-
-    @media (max-width: 768px) {
-      header.rsvp-header {
-        padding-top: 1.25rem;
-      }
-
-      .rsvp-names {
-        font-size: 1.45rem;
-        letter-spacing: 0.18em;
-      }
-
-      .rsvp-hebrew {
-        font-size: 0.9rem;
-        letter-spacing: 0.14em;
-      }
-
-      .rsvp-details {
-        font-size: 0.82rem;
-      }
-
-      .heart-logo-wrapper {
-        margin-top: 1.25rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .rsvp-title {
-        font-size: 1rem;
-        margin-top: 1.25rem;
-      }
-
-      .rsvp-embed-container {
-        padding: 0 0.75rem 0.5rem;
-      }
-
-      .rsvp-iframe {
-        border-radius: 14px;
-      }
     }
   </style>
 </head>
 
 <body>
-  <div class="page">
-    <header class="rsvp-header">
-      <div class="rsvp-names">HANNAH &amp; BRIAN</div>
-      <div class="rsvp-hebrew">חנה רבקה ומיכאל</div>
-      <div class="rsvp-details">SUNDAY, MAY 24, 2028 · CHUPPAH AT 6:00 PM</div>
 
-      <div class="heart-logo-wrapper">
-        <!-- Update the src to your actual heart logo path -->
-        <img
-          src="/images/brian-heart-hannah.png"
-          alt="Brian ♥ Hannah"
-          class="heart-logo"
-        />
-      </div>
-
-      <h1 class="rsvp-title">RSVP</h1>
-    </header>
-
-    <main class="rsvp-main">
-      <div class="rsvp-embed-container">
-        <!-- Full-screen-style embed: iframe fills all remaining height -->
-        <iframe
-          src="https://brianandhannah.rsvpify.com"
-          class="rsvp-iframe"
-          title="RSVP for Hannah & Brian"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </main>
+  <div class="header">
+    <div class="names">HANNAH &amp; BRIAN</div>
+    <div class="hebrew">חנה רבקה ומיכאל</div>
+    <div class="details">SUNDAY, MAY 24, 2026 • THE BEVERLY HILLS HOTEL</div>
   </div>
+
+  <!-- FULL SCREEN EMBED -->
+  <div class="embed-fullscreen">
+    <script type="text/javascript" src="https://brianandhannah.rsvpify.com/embed"></script>
+  </div>
+
 </body>
 </html>
