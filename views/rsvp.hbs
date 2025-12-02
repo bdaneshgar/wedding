@@ -1,28 +1,27 @@
 <style>
   .rsvp-wrapper {
     position: fixed;
-    inset: 0;                 /* full screen */
-    width: 100%;
-    height: 100%;
-    background: #faf9f6;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .rsvp-iframe {
-    position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    border: none;
+    overflow: hidden;
+    background: #faf9f6;
   }
 
-  /* Fix for iOS Safari dynamic toolbar shrinking viewport */
-  @supports (-webkit-touch-callout: none) {
-    .rsvp-wrapper {
-      height: -webkit-fill-available;
+  .rsvp-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+
+    /* Force scale up for Joy embed (fixes mobile) */
+    transform: scale(1.25);
+    transform-origin: top center;
+  }
+
+  @media (min-width: 768px) {
+    /* Desktop gets normal scale */
+    .rsvp-iframe {
+      transform: none;
     }
   }
 </style>
@@ -31,6 +30,6 @@
   <iframe
     class="rsvp-iframe"
     src="https://withjoy.com/brian-and-hannah-may-26/rsvp"
-    loading="lazy"
-  ></iframe>
+    loading="lazy">
+  </iframe>
 </div>
