@@ -393,16 +393,18 @@
       section#rsvp {
         position: relative;
         width: 100%;
-        min-height: 90vh; /* Feel free to make this 100vh if needed */
+        min-height: 100vh;
         padding: 0 !important; /* remove theme padding */
         margin: 0 !important;
         background-color: #f8f8f8; /* or match your site's section background */
+        display: flex;
       }
 
       /* Full bleed wrapper */
       .rsvp-full-container {
+        flex: 1 1 auto;
         width: 100%;
-        height: 100%;
+        min-height: 100vh;
         padding: 0;
         margin: 0 auto;
         display: flex;
@@ -410,8 +412,9 @@
 
       /* Force iframe to fill entire container */
       .rsvpify-full-iframe {
+        flex: 1 1 auto;
         width: 100% !important;
-        height: 100% !important;
+        min-height: 100vh;
         border: none !important;
         display: block;
       }
