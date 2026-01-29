@@ -379,49 +379,71 @@
         width: 100%;
         max-width: 220px;
       }
-      .lodging-section {
+      .lodging-cards-section {
         margin-top: 40px;
       }
-      .lodging-subsection {
-        margin-bottom: 48px;
+      .lodging-card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 36px 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 320px;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 20px;
       }
-      .lodging-subsection h4 {
+      .lodging-card:hover,
+      .lodging-card:focus {
+        transform: translateY(-4px);
+        box-shadow: 0 32px 60px rgba(0, 0, 0, 0.12);
+        text-decoration: none;
+        color: inherit;
+      }
+      .lodging-card h3 {
         font-family: 'Playfair Display', serif;
         letter-spacing: 2px;
-        font-size: 1.8rem;
-        margin-bottom: 24px;
+        font-size: 1.6rem;
+        margin-bottom: 20px;
         margin-top: 0;
         font-weight: 600;
+        text-align: center;
       }
-      .lodging-subsection > p {
-        color: rgba(66, 78, 92, 0.75);
-        line-height: 1.7;
-        max-width: 700px;
-        margin-bottom: 28px;
+      .lodging-card-content {
+        width: 100%;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
       .hotel-table {
         width: 100%;
         border-collapse: collapse;
-        margin-bottom: 32px;
-        background: #fff;
+        margin-bottom: 16px;
+        background: transparent;
       }
       .hotel-table thead {
         background: rgba(244, 239, 233, 0.55);
       }
       .hotel-table th {
-        padding: 16px 12px;
+        padding: 12px 8px;
         text-align: left;
         font-weight: 600;
-        font-size: 0.95rem;
+        font-size: 0.85rem;
         letter-spacing: 0.05em;
         border-bottom: 2px solid rgba(66, 78, 92, 0.15);
         color: #424e5c;
       }
       .hotel-table td {
-        padding: 14px 12px;
+        padding: 10px 8px;
         border-bottom: 1px solid rgba(66, 78, 92, 0.08);
-        font-size: 0.95rem;
-        line-height: 1.6;
+        font-size: 0.9rem;
+        line-height: 1.5;
       }
       .hotel-table tbody tr:last-child td {
         border-bottom: none;
@@ -430,31 +452,35 @@
         list-style: none;
         padding: 0;
         margin: 0;
+        text-align: center;
       }
       .lodging-list li {
-        padding: 12px 0;
-        padding-left: 24px;
-        position: relative;
-        font-size: 1rem;
+        padding: 10px 0;
+        font-size: 0.95rem;
         line-height: 1.6;
         color: #424e5c;
       }
       .lodging-list li::before {
-        content: '\2022';
-        position: absolute;
-        left: 0;
-        color: rgba(66, 78, 92, 0.5);
+        content: '';
+      }
+      .lodging-card-link {
+        margin-top: auto;
+        align-self: center;
       }
       @media (max-width: 767px) {
         .hotel-table {
-          font-size: 0.85rem;
+          font-size: 0.8rem;
         }
         .hotel-table th,
         .hotel-table td {
-          padding: 10px 8px;
+          padding: 8px 6px;
         }
-        .lodging-subsection h4 {
-          font-size: 1.5rem;
+        .lodging-card {
+          padding: 28px 20px;
+          min-height: auto;
+        }
+        .lodging-card h3 {
+          font-size: 1.4rem;
         }
       }
       #eng-pics .good-times-item:hover .img-wrap,
@@ -755,67 +781,79 @@
         </div>
       </div>
       <div class="col-md-12">
-        <div class="lodging-section">
-          <h3 class="section-heading text-center">Hotel, Restaurants & Things To Do</h3>
-          
-          <div class="lodging-subsection">
-            <h4>Where to Stay!</h4>
-            <p>We have not reserved a hotel block, but sharing here a few suggestions near our venue. If you have any questions, please feel free to reach out. We're happy to help provide guidance!</p>
-            <div class="table-responsive">
-              <table class="hotel-table">
-                <thead>
-                  <tr>
-                    <th>Hotel Name</th>
-                    <th>Proximity</th>
-                    <th>Avg. Per Night (2 Guests)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Beverly Hills Hotel</td>
-                    <td>Venue / 0 Minutes</td>
-                    <td>~$1,000–$2,000 <em>(Discount for wedding guests)</em></td>
-                  </tr>
-                  <tr>
-                    <td>Avalon Hotel Beverly Hills</td>
-                    <td>2 Miles / 10–15 Minutes</td>
-                    <td>~$300</td>
-                  </tr>
-                  <tr>
-                    <td>The Beverly Hilton</td>
-                    <td>2 Miles / 10–15 Minutes</td>
-                    <td>~$500</td>
-                  </tr>
-                  <tr>
-                    <td>Burton House</td>
-                    <td>2 Miles / 10–15 Minutes</td>
-                    <td>~$300</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+        <h3 class="section-heading text-center" style="margin-bottom: 40px;">Hotel, Restaurants & Things To Do</h3>
+        <div class="row">
+          <div class="col-md-4">
+            <a href="https://www.hotels.com/Hotel-Search?destination=Beverly+Hills%2C+California&startDate=2026-05-24&endDate=2026-05-25" target="_blank" rel="noopener noreferrer" class="lodging-card">
+              <h3>Where to Stay</h3>
+              <div class="lodging-card-content">
+                <div class="table-responsive">
+                  <table class="hotel-table">
+                    <thead>
+                      <tr>
+                        <th>Hotel</th>
+                        <th>Proximity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Beverly Hills Hotel</td>
+                        <td>0 Min</td>
+                      </tr>
+                      <tr>
+                        <td>Avalon Hotel</td>
+                        <td>10-15 Min</td>
+                      </tr>
+                      <tr>
+                        <td>The Beverly Hilton</td>
+                        <td>10-15 Min</td>
+                      </tr>
+                      <tr>
+                        <td>Burton House</td>
+                        <td>10-15 Min</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="lodging-card-link">
+                <span class="btn btn-accent btn-small">Search Hotels →</span>
+              </div>
+            </a>
           </div>
-          
-          <div class="lodging-subsection">
-            <h4>Where to Eat!</h4>
-            <ul class="lodging-list">
-              <li>South Beverly Grill</li>
-              <li>Honor Bar</li>
-              <li>Il Pastaio</li>
-              <li>Sadaf</li>
-              <li>Yunomi Handroll (Culver City location)</li>
-            </ul>
+          <div class="col-md-4">
+            <a href="https://www.opentable.com/s/?query=restaurants&location=Beverly+Hills%2C+California" target="_blank" rel="noopener noreferrer" class="lodging-card">
+              <h3>Where to Eat</h3>
+              <div class="lodging-card-content">
+                <ul class="lodging-list">
+                  <li>South Beverly Grill</li>
+                  <li>Honor Bar</li>
+                  <li>Il Pastaio</li>
+                  <li>Sadaf</li>
+                  <li>Yunomi Handroll</li>
+                </ul>
+              </div>
+              <div class="lodging-card-link">
+                <span class="btn btn-accent btn-small">Browse Restaurants →</span>
+              </div>
+            </a>
           </div>
-          
-          <div class="lodging-subsection">
-            <h4>Things To Do!</h4>
-            <ul class="lodging-list">
-              <li>Warner Bros. Studio Tour</li>
-              <li>Getty Museum</li>
-              <li>Palisades Park (Santa Monica)</li>
-              <li>Venice Canals</li>
-              <li>Hike Franklin Canyon Park Lake</li>
-            </ul>
+          <div class="col-md-4">
+            <a href="https://www.tripadvisor.com/Tourism-g14896-Los_Angeles_California.html" target="_blank" rel="noopener noreferrer" class="lodging-card">
+              <h3>Things To Do</h3>
+              <div class="lodging-card-content">
+                <ul class="lodging-list">
+                  <li>Warner Bros. Studio Tour</li>
+                  <li>Getty Museum</li>
+                  <li>Palisades Park</li>
+                  <li>Venice Canals</li>
+                  <li>Franklin Canyon Hike</li>
+                </ul>
+              </div>
+              <div class="lodging-card-link">
+                <span class="btn btn-accent btn-small">Explore Activities →</span>
+              </div>
+            </a>
           </div>
         </div>
       </div>
