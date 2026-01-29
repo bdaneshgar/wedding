@@ -101,7 +101,7 @@ router.get('/invitation', (req, res) => {
 
   res.render('wedding', {
     title: 'Brian & Hannah',
-    active: 'wedding',
+    active: 'wedding-dev',
     authed: true,
     galleryPhotos,
   });
