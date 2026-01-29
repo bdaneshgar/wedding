@@ -379,6 +379,84 @@
         width: 100%;
         max-width: 220px;
       }
+      .lodging-section {
+        margin-top: 40px;
+      }
+      .lodging-subsection {
+        margin-bottom: 48px;
+      }
+      .lodging-subsection h4 {
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 2px;
+        font-size: 1.8rem;
+        margin-bottom: 24px;
+        margin-top: 0;
+        font-weight: 600;
+      }
+      .lodging-subsection > p {
+        color: rgba(66, 78, 92, 0.75);
+        line-height: 1.7;
+        max-width: 700px;
+        margin-bottom: 28px;
+      }
+      .hotel-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 32px;
+        background: #fff;
+      }
+      .hotel-table thead {
+        background: rgba(244, 239, 233, 0.55);
+      }
+      .hotel-table th {
+        padding: 16px 12px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.95rem;
+        letter-spacing: 0.05em;
+        border-bottom: 2px solid rgba(66, 78, 92, 0.15);
+        color: #424e5c;
+      }
+      .hotel-table td {
+        padding: 14px 12px;
+        border-bottom: 1px solid rgba(66, 78, 92, 0.08);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .hotel-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+      .lodging-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .lodging-list li {
+        padding: 12px 0;
+        padding-left: 24px;
+        position: relative;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #424e5c;
+      }
+      .lodging-list li::before {
+        content: '\2022';
+        position: absolute;
+        left: 0;
+        color: rgba(66, 78, 92, 0.5);
+      }
+      @media (max-width: 767px) {
+        .hotel-table {
+          font-size: 0.85rem;
+        }
+        .hotel-table th,
+        .hotel-table td {
+          padding: 10px 8px;
+        }
+        .lodging-subsection h4 {
+          font-size: 1.5rem;
+        }
+      }
       #eng-pics .good-times-item:hover .img-wrap,
       #eng-pics .good-times-item:focus .img-wrap {
         transform: translateY(-6px);
@@ -676,15 +754,68 @@
           <img src="/img/BD036476.JPG" alt="Beverly Hills Hotel">
         </div>
       </div>
-      <div class="col-md-6 text-center venue-column">
-        <div class="venue-card">
-          <p>If you’d like to make a weekend of it, we’ve arranged a preferred rate for our guests.</p>
-          <p>Please mention our wedding when booking directly to receive the discount.</p>
-          <p>We’ll be updating this page soon with alternate lodging and activity recommendations.</p>
-          <div class="venue-actions">
-            <a class="btn btn-accent btn-large" href="#map">
-              <i class="fa fa-map-marker"></i>&nbsp;&nbsp;Show map
-            </a>
+      <div class="col-md-12">
+        <div class="lodging-section">
+          <h3 class="section-heading text-center">Hotel, Restaurants & Things To Do</h3>
+          
+          <div class="lodging-subsection">
+            <h4>Where to Stay!</h4>
+            <p>We have not reserved a hotel block, but sharing here a few suggestions near our venue. If you have any questions, please feel free to reach out. We're happy to help provide guidance!</p>
+            <div class="table-responsive">
+              <table class="hotel-table">
+                <thead>
+                  <tr>
+                    <th>Hotel Name</th>
+                    <th>Proximity</th>
+                    <th>Avg. Per Night (2 Guests)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Beverly Hills Hotel</td>
+                    <td>Venue / 0 Minutes</td>
+                    <td>~$1,000–$2,000 <em>(Discount for wedding guests)</em></td>
+                  </tr>
+                  <tr>
+                    <td>Avalon Hotel Beverly Hills</td>
+                    <td>2 Miles / 10–15 Minutes</td>
+                    <td>~$300</td>
+                  </tr>
+                  <tr>
+                    <td>The Beverly Hilton</td>
+                    <td>2 Miles / 10–15 Minutes</td>
+                    <td>~$500</td>
+                  </tr>
+                  <tr>
+                    <td>Burton House</td>
+                    <td>2 Miles / 10–15 Minutes</td>
+                    <td>~$300</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="lodging-subsection">
+            <h4>Where to Eat!</h4>
+            <ul class="lodging-list">
+              <li>South Beverly Grill</li>
+              <li>Honor Bar</li>
+              <li>Il Pastaio</li>
+              <li>Sadaf</li>
+              <li>Yunomi Handroll (Culver City location)</li>
+            </ul>
+          </div>
+          
+          <div class="lodging-subsection">
+            <h4>Things To Do!</h4>
+            <ul class="lodging-list">
+              <li>Warner Bros. Studio Tour</li>
+              <li>Getty Museum</li>
+              <li>Palisades Park (Santa Monica)</li>
+              <li>Venice Canals</li>
+              <li>Hike Franklin Canyon Park Lake</li>
+            </ul>
           </div>
         </div>
       </div>
