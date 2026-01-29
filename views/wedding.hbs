@@ -456,12 +456,22 @@
       }
       .lodging-list li {
         padding: 10px 0;
-        font-size: 0.95rem;
+        font-size: 1.05rem;
         line-height: 1.6;
         color: #424e5c;
       }
       .lodging-list li::before {
         content: '';
+      }
+      .lodging-list li a {
+        color: #424e5c;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(66, 78, 92, 0.3);
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+      .lodging-list li a:hover {
+        color: var(--accent-dark, #8b6f47);
+        border-bottom-color: rgba(139, 111, 71, 0.5);
       }
       .lodging-card-link {
         margin-top: auto;
@@ -780,11 +790,15 @@
           <img src="/img/BD036476.JPG" alt="Beverly Hills Hotel">
         </div>
       </div>
-      <div class="col-md-6 venue-column">
-        <div class="grid-box">
-          <img src="/img/BD036478.JPG" alt="Beverly Hills Hotel">
-        </div>
-      </div>
+
+        <div class="venue-card">
+          <p>If you’d like to make a weekend of it, we’ve arranged a preferred rate for our guests.</p>
+          <p>Please mention our wedding when booking directly to receive the discount.</p>
+          <p>We’ll be updating this page soon with alternate lodging and activity recommendations.</p>
+          <div class="venue-actions">
+            <a class="btn btn-accent btn-large" href="#map">
+              <i class="fa fa-map-marker"></i>&nbsp;&nbsp;Show map
+            </a>
     </div>
   </div>
 </section>
@@ -799,43 +813,44 @@
     <div class="col-md-12">
         <div class="row">
           <div class="col-md-4">
+            <div class="lodging-card">
               <h3>Where to Stay</h3>
               <div class="lodging-card-content">
                 <ul class="lodging-list">
-                  <li>Beverly Hills Hotel</li>
-                  <li>Avalon Hotel Beverly Hills</li>
-                  <li>Beverly Hilton</li>
-                  <li>Burton House</li>
+                  <li><a href="https://www.beverlyhillshotel.com/" target="_blank" rel="noopener noreferrer">Beverly Hills Hotel</a></li>
+                  <li><a href="https://www.avalonbeverlyhills.com/" target="_blank" rel="noopener noreferrer">Avalon Hotel Beverly Hills</a></li>
+                  <li><a href="https://www.beverlyhilton.com/" target="_blank" rel="noopener noreferrer">Beverly Hilton</a></li>
+                  <li><a href="https://www.burtonhouse.com/" target="_blank" rel="noopener noreferrer">Burton House</a></li>
                 </ul>
               </div>
-            
+            </div>
           </div>
-              <div class="col-md-4">
+          <div class="col-md-4">
+            <div class="lodging-card">
               <h3>Where to Eat</h3>
               <div class="lodging-card-content">
                 <ul class="lodging-list">
-                  <li>South Beverly Grill</li>
-                  <li>Honor Bar</li>
-                  <li>Il Pastaio</li>
-                  <li>Sadaf</li>
-                  <li>Yunomi Handroll</li>
+                  <li><a href="https://www.southbeverlygrill.com/" target="_blank" rel="noopener noreferrer">South Beverly Grill</a></li>
+                  <li><a href="https://www.honorbarla.com/" target="_blank" rel="noopener noreferrer">Honor Bar</a></li>
+                  <li><a href="https://www.ilpastaio.com/" target="_blank" rel="noopener noreferrer">Il Pastaio</a></li>
+                  <li><a href="https://www.sadafbh.com/" target="_blank" rel="noopener noreferrer">Sadaf</a></li>
+                  <li><a href="https://www.yunomi.com/" target="_blank" rel="noopener noreferrer">Yunomi Handroll</a></li>
                 </ul>
               </div>
-              <div class="lodging-card-link">
-                <span class="btn btn-accent btn-small">Browse Restaurants →</span>
-              </div>
-            
+            </div>
           </div>
           <div class="col-md-4">
-            <h3>Things To Do</h3>
-            <div class="lodging-card-content">
-              <ul class="lodging-list">
-                <li>Warner Bros. Studio Tour</li>
-                <li>Getty Museum</li>
-                <li>Palisades Park</li>
-                <li>Venice Canals</li>
-                <li>Franklin Canyon Hike</li>
-              </ul>
+            <div class="lodging-card">
+              <h3>Things To Do</h3>
+              <div class="lodging-card-content">
+                <ul class="lodging-list">
+                  <li><a href="https://www.wbstudiotour.com/" target="_blank" rel="noopener noreferrer">Warner Bros. Studio Tour</a></li>
+                  <li><a href="https://www.getty.edu/" target="_blank" rel="noopener noreferrer">Getty Museum</a></li>
+                  <li><a href="https://www.lamountains.com/palisades-park/" target="_blank" rel="noopener noreferrer">Palisades Park</a></li>
+                  <li><a href="https://www.venicecanalswalk.com/" target="_blank" rel="noopener noreferrer">Venice Canals</a></li>
+                  <li><a href="https://www.lamountains.com/franklin-canyon-park/" target="_blank" rel="noopener noreferrer">Franklin Canyon Hike</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
